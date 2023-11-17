@@ -6,7 +6,8 @@
     "dev": "next lint & next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {
     "next": "14.0.1",
@@ -14,6 +15,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.0.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
