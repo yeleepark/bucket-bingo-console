@@ -10,6 +10,9 @@
     "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.18",
     "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18"
@@ -29,5 +32,9 @@
     "eslint-plugin-react": "^7.33.2",
     "prettier": "^3.1.0",
     "typescript": "^5.2.2"
-  }
+  },
+  "main": "index.tsx",
+  "repository": "https://github.com/yeleepark/bucket-bingo-console.git",
+  "author": "yelee park <dev.yelee@gmail.com>",
+  "license": "MIT"
 }
