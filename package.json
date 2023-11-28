@@ -14,12 +14,15 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.18",
+    "@tanstack/react-query": "^5.8.7",
+    "axios": "^1.6.2",
     "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^14.0.3",
+    "@tanstack/eslint-plugin-query": "^5.8.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

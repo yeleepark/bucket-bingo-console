@@ -1,7 +1,7 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint", "prettier", "@tanstack/query"],
   "parserOptions": {
     "project": "./tsconfig.json",
     "createDefaultProgram": true
@@ -18,11 +18,14 @@
     "prettier"
   ],
   "rules": {
+    "react/jsx-props-no-spreading": "off",
     "prettier/prettier": "error",
     "object-curly-newline": [
       "error",
       { "multiline": true, "consistent": true }
     ],
-    "react/jsx-props-no-spreading": "warn"
+    "@tanstack/query/exhaustive-deps": "error",
+    "@tanstack/query/no-rest-destructuring": "warn",
+    "@tanstack/query/stable-query-client": "error"
   }
 }
