@@ -6,15 +6,20 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import theme from '@theme/theme';
 import createEmotionCache from '@theme/createEmotionCache';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
+import { NextPage } from 'next';
+
+type Page<P = object> = NextPage<P> & {
+  getLayout?: (page: ReactNode) => ReactNode;
+};
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
+  Component: Page;
 }
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = createEmotionCache(), pageProps } = props;
-
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -27,7 +32,7 @@ export default function MyApp(props: MyAppProps) {
         },
       }),
   );
-
+  const getLayout = Component.getLayout || ((page: ReactNode) => page);
   return (
     <CacheProvider value={emotionCache}>
       <QueryClientProvider client={queryClient}>
@@ -36,7 +41,7 @@ export default function MyApp(props: MyAppProps) {
         </Head>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Component {...pageProps} />
+          {getLayout(<Component {...pageProps} />)}
         </ThemeProvider>
       </QueryClientProvider>
     </CacheProvider>

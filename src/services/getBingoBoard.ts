@@ -1,12 +1,15 @@
 import axios from 'axios';
 
 type BingoBoardStatus = ``;
+
 type BingoSqureStatus = `IN_PROGRESS` | `TODO` | `DONE`;
+
 interface IBingoSqure {
   order: number;
   status: BingoSqureStatus;
   updatedAt: Date;
 }
+
 interface IBingoBoard {
   items: Array<{
     id: string;
