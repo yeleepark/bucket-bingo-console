@@ -10,21 +10,22 @@ import {
   Typography,
 } from '@mui/material';
 import { QueryClient, useQuery } from '@tanstack/react-query';
-import { GET_BINGOBOARD_QK, getBingoBoardList } from '@services/getBingoBoard';
+import {
+  BINGO_BOARDS_QUERY_KEY,
+  getBingoBoardList,
+} from '@services/getBingoBoards';
 import Layout from '@components/Layout/Layout';
+import Intro from '@features/Intro';
 
 const Home = () => {
   const { data } = useQuery({
-    queryKey: [GET_BINGOBOARD_QK],
+    queryKey: [BINGO_BOARDS_QUERY_KEY],
     queryFn: () => getBingoBoardList(),
   });
-
   const { items } = data || {};
   return (
     <Box sx={{ bgcolor: 'background.paper' }}>
-      <Box sx={{ bgcolor: `blueGrey.50`, py: 10 }}>
-        <Container maxWidth="xl">Intro</Container>
-      </Box>
+      <Intro />
       <Box sx={{ py: 10 }}>
         <Container maxWidth="xl">
           <Box my={4}>
@@ -77,7 +78,7 @@ const Home = () => {
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
   queryClient.prefetchQuery({
-    queryKey: [GET_BINGOBOARD_QK],
+    queryKey: [BINGO_BOARDS_QUERY_KEY],
     queryFn: () => getBingoBoardList(),
   });
   return {

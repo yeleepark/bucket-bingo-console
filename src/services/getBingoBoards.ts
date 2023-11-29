@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-type BingoBoardStatus = ``;
-
+type BingoBoardStatus = `DRAFT` | `ACTIVE` | `INACTIVE`;
 type BingoSqureStatus = `IN_PROGRESS` | `TODO` | `DONE`;
 
 interface IBingoSqure {
@@ -10,7 +9,7 @@ interface IBingoSqure {
   updatedAt: Date;
 }
 
-interface IBingoBoard {
+interface IBingoBoardsResponse {
   items: Array<{
     id: string;
     name: string;
@@ -29,12 +28,14 @@ interface IBingoBoard {
   totalPageCount: number;
 }
 
-const GET_BINGOBOARD_QK = `/dummy/bingo-boards.json`;
+const BINGO_BOARDS_QUERY_KEY = `/dummy/bingo-boards.json`;
 
-const getBingoBoardList = async (): Promise<IBingoBoard> => {
-  const response = await axios.get<IBingoBoard>(`/dummy/bingo-boards.json`);
+const getBingoBoardList = async (): Promise<IBingoBoardsResponse> => {
+  const response = await axios.get<IBingoBoardsResponse>(
+    `/dummy/bingo-boards.json`,
+  );
   return response?.data;
 };
 
-export { getBingoBoardList, GET_BINGOBOARD_QK };
-export type { IBingoBoard };
+export { getBingoBoardList, BINGO_BOARDS_QUERY_KEY };
+export type { IBingoBoardsResponse };
