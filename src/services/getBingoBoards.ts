@@ -1,41 +1,11 @@
 import axios from 'axios';
+import { BingoBoardsResponse } from './types';
 
-type BingoBoardStatus = `DRAFT` | `ACTIVE` | `INACTIVE`;
-type BingoSqureStatus = `IN_PROGRESS` | `TODO` | `DONE`;
+const BINGO_BOARDS_API_URL = `/dummy/getBingoBoards.json`;
 
-interface IBingoSqure {
-  order: number;
-  status: BingoSqureStatus;
-  updatedAt: Date;
-}
-
-interface IBingoBoardsResponse {
-  items: Array<{
-    id: string;
-    name: string;
-    description?: string;
-    size: number;
-    squares: IBingoSqure[];
-    status: BingoBoardStatus;
-    startDate: Date | null;
-    endDate: Date | null;
-    created: { at: Date; by: { id: string } };
-    updated: { at: Date; by: { id: string } };
-  }>;
-  totalCount: number;
-  pageSize: number;
-  pageOffset: number;
-  totalPageCount: number;
-}
-
-const BINGO_BOARDS_QUERY_KEY = `/dummy/bingo-boards.json`;
-
-const getBingoBoardList = async (): Promise<IBingoBoardsResponse> => {
-  const response = await axios.get<IBingoBoardsResponse>(
-    `/dummy/bingo-boards.json`,
-  );
+const getBingoBoards = async (): Promise<BingoBoardsResponse> => {
+  const response = await axios.get<BingoBoardsResponse>(BINGO_BOARDS_API_URL);
   return response?.data;
 };
 
-export { getBingoBoardList, BINGO_BOARDS_QUERY_KEY };
-export type { IBingoBoardsResponse };
+export { getBingoBoards, BINGO_BOARDS_API_URL };
