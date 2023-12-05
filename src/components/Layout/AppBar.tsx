@@ -8,8 +8,10 @@ import {
 import GridViewSharpIcon from '@mui/icons-material/GridViewSharp';
 import { useState } from 'react';
 import CreateBingoBoard from '@features/CreateBingoBoard';
+import { useRouter } from 'next/router';
 
 const AppBar = () => {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
 
   return (
@@ -18,7 +20,12 @@ const AppBar = () => {
         <Toolbar sx={{ justifyContent: `space-between` }}>
           <Box display="flex" alignItems="center">
             <GridViewSharpIcon color="primary" />
-            <Typography variant="h6" noWrap ml={1}>
+            <Typography
+              variant="h6"
+              noWrap
+              ml={1}
+              onClick={() => router.push('/')}
+            >
               BUCKET BINGO
             </Typography>
           </Box>
