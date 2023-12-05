@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
-import Header from './Header';
+import AppBar from './AppBar';
 import Footer from './Footer';
 
 const Layout = ({ children }: { children: ReactNode }) => (
   <>
-    <Header />
+    <AppBar />
     <main>{children}</main>
     <Footer />
   </>
