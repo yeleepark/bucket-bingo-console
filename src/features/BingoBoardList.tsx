@@ -1,7 +1,8 @@
+import BingoBoard from '@components/bingo/BingoBoard';
+import BingoSqure from '@components/bingo/BingoSqure';
 import {
   Box,
   Card,
-  CardActions,
   CardContent,
   CardHeader,
   CardMedia,
@@ -18,45 +19,36 @@ interface BingoBoardListProps {
 const BingoBoardList = ({ data }: BingoBoardListProps) => {
   const router = useRouter();
   return (
-    <Box sx={{ py: 10 }}>
+    <Box sx={{ py: 5 }}>
       <Container maxWidth="xl">
         <Box my={4}>
           <Typography variant="h3">Bucket Bingo</Typography>
         </Box>
-        <Grid container columns={{ xs: 1, sm: 2, md: 3, lg: 4 }} spacing={4}>
+        <Grid
+          container
+          columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}
+          spacing={4}
+          alignItems={`stretch`}
+        >
           {data?.map((item) => (
             <Grid key={item.id} item xs={1}>
-              <Card onClick={() => router.push(`details/${item.id}`)}>
+              <Card
+                onClick={() => router.push(`details/${item.id}`)}
+                sx={{ height: `100%` }}
+              >
                 <CardHeader
                   title={item.name}
                   subheader={item?.created?.at.toString() || `-`}
                 />
                 <CardMedia>
                   <CardContent>
-                    <Grid container columns={item.size}>
+                    <BingoBoard size={item.size}>
                       {item?.squares?.map((i) => (
-                        <Grid key={i.order} item xs={1}>
-                          <Box
-                            sx={{
-                              outline: `1px dotted black`,
-                              bgcolor:
-                                i.status === `DONE`
-                                  ? `common.black`
-                                  : `common.white`,
-                              color:
-                                i.status === `DONE`
-                                  ? `common.white`
-                                  : `common.black`,
-                            }}
-                          >
-                            {i.order}
-                          </Box>
-                        </Grid>
+                        <BingoSqure key={i.order} status={item.status} />
                       ))}
-                    </Grid>
+                    </BingoBoard>
                   </CardContent>
                 </CardMedia>
-                <CardActions disableSpacing>카드액션</CardActions>
               </Card>
             </Grid>
           ))}

@@ -14,7 +14,7 @@ interface BingoBoardsResponse {
     description?: string;
     size: number;
     squares: BingoSqureResponse[];
-    status: BingoBoardStatus;
+    status: BingoSqureStatus;
     startDate: Date | null;
     endDate: Date | null;
     created: { at: Date; by: { id: string } };
