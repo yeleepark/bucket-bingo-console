@@ -11,11 +11,11 @@
         "totalCount": 1,
         "currentCount": 1
       },
-      "status": "TODO",
+      "status": "DONE",
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 1,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -25,7 +25,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 2,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -35,7 +35,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 3,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -45,7 +45,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 4,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -55,7 +55,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 5,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -65,7 +65,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 6,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -75,7 +75,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 7,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -85,7 +85,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 8,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -95,7 +95,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 9,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -105,7 +105,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 10,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -115,7 +115,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 11,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -125,7 +125,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 12,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -135,7 +135,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 13,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -145,7 +145,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 14,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -155,7 +155,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 15,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -165,7 +165,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 16,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -175,7 +175,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 17,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -185,7 +185,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 18,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -195,7 +195,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 19,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -205,7 +205,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 20,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -215,7 +215,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 21,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -225,7 +225,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 22,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -235,7 +235,7 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 23,
       "objective": {
         "content": "string",
         "totalCount": 1,
@@ -245,13 +245,13 @@
       "updatedAt": "2023-12-12T09:18:06.043Z"
     },
     {
-      "order": 0,
+      "order": 24,
       "objective": {
         "content": "string",
         "totalCount": 1,
         "currentCount": 1
       },
-      "status": "TODO",
+      "status": "DONE",
       "updatedAt": "2023-12-12T09:18:06.043Z"
     }
   ],

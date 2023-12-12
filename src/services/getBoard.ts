@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { BingoBoard } from './entity';
 
-const BINGO_BOARDS_API_URL = `/dummy/getBoard.json`;
+const BINGG_DETAIL_API = `/dummy/getBoard.json`;
 
 type BoardsDetailResponse = BingoBoard;
 
@@ -9,10 +9,11 @@ const getBoard = async (
   boardId: BingoBoard['id'],
 ): Promise<BoardsDetailResponse> => {
   const response = await axios.get<BoardsDetailResponse>(
-    `${BINGO_BOARDS_API_URL}/${boardId}`,
+    // `${BINGG_DETAIL_API}/${boardId}`,
+    `${BINGG_DETAIL_API}`,
   );
   return response?.data;
 };
 
-export { getBoard, BINGO_BOARDS_API_URL };
+export { getBoard, BINGG_DETAIL_API };
 export type { BoardsDetailResponse };

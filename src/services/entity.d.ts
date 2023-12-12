@@ -17,7 +17,7 @@ type BingoBoard = {
   id: number;
   name: string;
   description: string | null;
-  size: 5 | 6 | 7 | 8 | 9 | 10;
+  size: 5 | 6 | 7 | 8 | 9 | 10 | number;
   squares: BingoSqare[];
   status: BingoBoardStatus;
   startDate: Date | null;
