@@ -10,11 +10,11 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import { BingoBoardsResponse } from '@services/types';
+import { BoardsResponse } from '@services/getBoards';
 import { useRouter } from 'next/router';
 
 interface BingoBoardListProps {
-  data: BingoBoardsResponse['items'];
+  data: BoardsResponse['items'];
 }
 const BingoBoardList = ({ data }: BingoBoardListProps) => {
   const router = useRouter();
@@ -44,7 +44,7 @@ const BingoBoardList = ({ data }: BingoBoardListProps) => {
                   <CardContent>
                     <BingoBoard size={item.size}>
                       {item?.squares?.map((i) => (
-                        <BingoSqure key={i.order} status={item.status} />
+                        <BingoSqure key={i.order} status={i.status} />
                       ))}
                     </BingoBoard>
                   </CardContent>

@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { QueryClient, useQuery } from '@tanstack/react-query';
-import { BINGO_BOARDS_API_URL, getBingoBoards } from '@services/getBingoBoards';
+import { BINGO_BOARDS_API_URL, getBoards } from '@services/getBoards';
 import Layout from '@components/Layout/Layout';
 import MainIntro from '@features/MainIntro';
 import BingoBoardList from '@features/BingoBoardList';
@@ -8,7 +8,7 @@ import BingoBoardList from '@features/BingoBoardList';
 const Home = () => {
   const { data, status } = useQuery({
     queryKey: [BINGO_BOARDS_API_URL],
-    queryFn: () => getBingoBoards(),
+    queryFn: () => getBoards(),
   });
 
   if (status === `pending`) return <>로딩</>;
@@ -28,7 +28,7 @@ export async function getServerSideProps() {
   const queryClient = new QueryClient();
   queryClient.prefetchQuery({
     queryKey: [BINGO_BOARDS_API_URL],
-    queryFn: () => getBingoBoards(),
+    queryFn: () => getBoards(),
   });
   return {
     props: {},

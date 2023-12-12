@@ -1,5 +1,5 @@
 import { Box, Grid } from '@mui/material';
-import { BingoSqureStatus } from '@services/types';
+import { BingoSqureStatus } from '@services/entity';
 
 interface BingoSqureProps {
   status: BingoSqureStatus;

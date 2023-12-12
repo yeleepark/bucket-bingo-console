@@ -1,0 +1,273 @@
+{
+  "id": 0,
+  "name": "string",
+  "description": "string",
+  "size": 10,
+  "squares": [
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    },
+    {
+      "order": 0,
+      "objective": {
+        "content": "string",
+        "totalCount": 1,
+        "currentCount": 1
+      },
+      "status": "TODO",
+      "updatedAt": "2023-12-12T09:18:06.043Z"
+    }
+  ],
+  "status": "DRAFT",
+  "startDate": "2023-12-12T09:18:06.043Z",
+  "endDate": "2023-12-12T09:18:06.043Z",
+  "created": {
+    "at": "2023-12-12T09:18:06.043Z",
+    "by": {
+      "id": "string"
+    }
+  },
+  "updated": {
+    "at": "2023-12-12T09:18:06.043Z",
+    "by": {
+      "id": "string"
+    }
+  }
+}

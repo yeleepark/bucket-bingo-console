@@ -1170,7 +1170,7 @@
       }
     },
     {
-      "id": 0,
+      "id": 3,
       "name": "8*8",
       "description": "string",
       "size": 8,
@@ -1833,7 +1833,7 @@
       }
     },
     {
-      "id": 0,
+      "id": 4,
       "name": "9*9",
       "description": "string",
       "size": 9,
@@ -2666,7 +2666,7 @@
       }
     },
     {
-      "id": 0,
+      "id": 5,
       "name": "10*10",
       "description": "string",
       "size": 10,

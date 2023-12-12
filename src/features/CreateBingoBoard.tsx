@@ -10,13 +10,6 @@ import {
 } from '@mui/material';
 import { useCallback } from 'react';
 
-// {
-//     "name": "string",
-//     "size": 0,
-//     "description": "string",
-//     "endDate": "2023-12-05T09:57:31.031Z"
-//   }
-
 interface CreateBingoBoardProps {
   open: boolean;
   onClose: () => void;
