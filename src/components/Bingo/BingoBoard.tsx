@@ -1,13 +1,14 @@
 import { Grid } from '@mui/material';
-import { ReactNode } from 'react';
+import { ReactNode, useRef } from 'react';
 
 interface BingoBoardProps {
   size: number;
   children: ReactNode;
 }
 const BingoBoard = ({ size, children }: BingoBoardProps) => {
+  const ref = useRef<HTMLDivElement | null>(null);
   return (
-    <Grid container columns={size} sx={{ border: `1px solid red` }}>
+    <Grid container columns={size} ref={ref}>
       {children}
     </Grid>
   );
