@@ -10,7 +10,7 @@ import GridViewSharpIcon from '@mui/icons-material/GridViewSharp';
 import Link from 'next/link';
 import { FC } from 'react';
 import PopupTriggerButton from '@components/Button/PopupTriggerButton';
-import BingoBoardDialog from '@components/Bingo/BingoBoardDialog';
+import BingoBoardDialog from '@components/Bingo-/BingoBoardDialog';
 
 interface AppBarProps extends MuiAppBarProps {}
 

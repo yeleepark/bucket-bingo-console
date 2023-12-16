@@ -1,8 +1,9 @@
-import BingoBoard from '@components/Bingo/BingoBoard';
-import BingoSqure from '@components/Bingo/BingoSqure';
+import BingoBoard from '@components/Bingo-/BingoBoard';
+import BingoSqure from '@components/Bingo-/BingoSqure';
 import {
   Box,
   Card,
+  CardActionArea,
   CardContent,
   CardHeader,
   CardMedia,
@@ -36,19 +37,21 @@ const BingoBoardList = ({ data }: BingoBoardListProps) => {
                 onClick={() => router.push(`details/${item.id}`)}
                 sx={{ height: `100%` }}
               >
-                <CardHeader
-                  title={item.name}
-                  subheader={item?.created?.at.toString() || `-`}
-                />
-                <CardMedia>
-                  <CardContent>
-                    <BingoBoard size={item.size}>
-                      {item?.squares?.map((i) => (
-                        <BingoSqure key={i.order} status={i.status} />
-                      ))}
-                    </BingoBoard>
-                  </CardContent>
-                </CardMedia>
+                <CardActionArea>
+                  <CardHeader
+                    title={item.name}
+                    subheader={item?.created?.at.toString() || `-`}
+                  />
+                  <CardMedia>
+                    <CardContent>
+                      <BingoBoard size={item.size}>
+                        {item?.squares?.map((i) => (
+                          <BingoSqure key={i.order} status={i.status} />
+                        ))}
+                      </BingoBoard>
+                    </CardContent>
+                  </CardMedia>
+                </CardActionArea>
               </Card>
             </Grid>
           ))}

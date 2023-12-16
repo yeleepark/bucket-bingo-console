@@ -1,6 +1,6 @@
 import Layout from '../../../components/Layout/Layout';
-import BingoBoard from '../../../components/Bingo/BingoBoard';
-import BingoSqure from '../../../components/Bingo/BingoSqure';
+import BingoBoard from '../../../components/Bingo-/BingoBoard';
+import BingoSqure from '../../../components/Bingo-/BingoSqure';
 import { Box, Container, Typography } from '@mui/material';
 import { BINGG_DETAIL_API, getBoard } from '@services/getBoard';
 import { useQuery } from '@tanstack/react-query';
