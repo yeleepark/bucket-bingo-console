@@ -1,5 +1,5 @@
-import BingoBoard from '@components/bingo/BingoBoard';
-import BingoSqure from '@components/bingo/BingoSqure';
+import BingoBoard from '@components/Bingo/BingoBoard';
+import BingoSqure from '@components/Bingo/BingoSqure';
 import {
   Box,
   Card,
