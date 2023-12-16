@@ -2,44 +2,36 @@ import {
   AppBar as MuiAppBar,
   Toolbar,
   Typography,
-  Button,
   Box,
+  AppBarProps as MuiAppBarProps,
 } from '@mui/material';
 import GridViewSharpIcon from '@mui/icons-material/GridViewSharp';
-import { useState } from 'react';
-import CreateBingoBoard from '@features/CreateBingoBoard';
-import { useRouter } from 'next/router';
 
-const AppBar = () => {
-  const router = useRouter();
-  const [open, setOpen] = useState(false);
+import Link from 'next/link';
+import { FC } from 'react';
+import PopupTriggerButton from '@components/Button/PopupTriggerButton';
+import BingoBoardDialog from '@components/Bingo/BingoBoardDialog';
 
+interface AppBarProps extends MuiAppBarProps {}
+
+const AppBar: FC<AppBarProps> = (props) => {
+  const { ...muiProps } = props;
   return (
-    <>
-      <MuiAppBar position="relative" color="transparent">
-        <Toolbar sx={{ justifyContent: `space-between` }}>
-          <Box display="flex" alignItems="center">
+    <MuiAppBar position="relative" color="transparent" {...muiProps}>
+      <Toolbar sx={{ justifyContent: `space-between` }}>
+        <Link href={`/`}>
+          <Box display={`flex`} alignItems={`center`}>
             <GridViewSharpIcon color="primary" />
-            <Typography
-              variant="h6"
-              noWrap
-              ml={1}
-              onClick={() => router.push('/')}
-            >
+            <Typography variant="h6" noWrap ml={1}>
               BUCKET BINGO
             </Typography>
           </Box>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => setOpen(true)}
-          >
-            만들기
-          </Button>
-        </Toolbar>
-      </MuiAppBar>
-      <CreateBingoBoard open={open} onClose={() => setOpen(false)} />
-    </>
+        </Link>
+        <PopupTriggerButton popup={<BingoBoardDialog />} variant={`contained`}>
+          도전
+        </PopupTriggerButton>
+      </Toolbar>
+    </MuiAppBar>
   );
 };
 

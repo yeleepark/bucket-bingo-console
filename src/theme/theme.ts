@@ -25,6 +25,16 @@ const theme = createTheme({
   typography: {
     fontFamily: noto_sans.style.fontFamily,
   },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: () => ({
+        a: {
+          textDecoration: `none`,
+          color: `inherit`,
+        },
+      }),
+    },
+  },
 });
 
 export default theme;

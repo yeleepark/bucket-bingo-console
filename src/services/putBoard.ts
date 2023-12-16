@@ -10,6 +10,7 @@ interface PutBoardRequest {
     totalCount: BingoObjective['totalCount'];
   }[];
 }
+
 const putBoard = async (id: string, request: PutBoardRequest) => {
   const response = await axios.put(`/boards/${id}`, request);
   return response?.data;

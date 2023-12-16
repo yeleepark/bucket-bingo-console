@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { QueryClient, useQuery } from '@tanstack/react-query';
 import { BINGO_BOARDS_API_URL, getBoards } from '@services/getBoards';
-import Layout from '@components/Layout/Layout';
+import Layout from '../components/Layout/Layout';
 import MainIntro from '@features/MainIntro';
 import BingoBoardList from '@features/BingoBoardList';
 
