@@ -22,7 +22,7 @@ const BingoBoardList = ({ data }: BingoBoardListProps) => {
     <Box sx={{ py: 5 }}>
       <Container maxWidth="xl">
         <Box my={4}>
-          <Typography variant="h3">Bucket Bingo</Typography>
+          <Typography variant="h6">🔥 빙고 대결 중 🔥</Typography>
         </Box>
         <Grid
           container
