@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useCallback, useState } from 'react';
-import { PostBoardsRequest, postBoards } from '@services/postBoard';
+import { PostBoardsRequest, postBoards } from '../../services/postBoard';
 import { useMutation } from '@tanstack/react-query';
 
 const BingoBoardDialog = () => {

@@ -11,7 +11,7 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import { BoardsResponse } from '@services/getBoards';
+import { BoardsResponse } from '../services/getBoards';
 import { useRouter } from 'next/router';
 
 interface BingoBoardListProps {

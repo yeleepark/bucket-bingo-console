@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BingoBoard } from './entity';
+import { BingoBoard } from './schema';
 
 interface PostBoardsRequest {
   name: BingoBoard['name'];

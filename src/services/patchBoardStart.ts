@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BingoBoard } from './entity';
+import { BingoBoard } from './schema';
 
 const patchBoardStart = async (boardId: BingoBoard['id']) => {
   const response = await axios.patch(`boards/${boardId}/start`);

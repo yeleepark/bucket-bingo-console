@@ -16,12 +16,12 @@ type BingoSqare = {
 type BingoBoard = {
   id: number;
   name: string;
-  description: string | null;
-  size: 5 | 6 | 7 | 8 | 9 | 10 | number;
+  description?: string;
+  size: 5 | 6 | 7 | 8 | 9 | 10;
   squares: BingoSqare[];
   status: BingoBoardStatus;
-  startDate: Date | null;
-  endDate: Date | null;
+  startDate?: Date;
+  endDate?: Date;
   created: UserContext;
 };
 export type {

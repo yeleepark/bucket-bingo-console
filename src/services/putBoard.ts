@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BingoObjective } from './entity';
+import { BingoObjective } from './schema';
 
 interface PutBoardRequest {
   name: string;

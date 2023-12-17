@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BingoBoard, BingoSqare, BingoSqureStatus } from './entity';
+import { BingoBoard, BingoSqare, BingoSqureStatus } from './schema';
 
 interface PatchSquareRequest {
   status: BingoSqureStatus;
