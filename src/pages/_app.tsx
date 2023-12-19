@@ -22,18 +22,7 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = createEmotionCache(), pageProps } = props;
-  const [queryClient] = useState(
-    () =>
-      new QueryClient({
-        defaultOptions: {
-          queries: {
-            // With SSR, we usually want to set some default staleTime
-            // above 0 to avoid refetching immediately on the client
-            staleTime: 60 * 1000,
-          },
-        },
-      }),
-  );
+  const [queryClient] = useState(() => new QueryClient({}));
   const getLayout = Component.getLayout || ((page: ReactNode) => page);
   return (
     <CacheProvider value={emotionCache}>

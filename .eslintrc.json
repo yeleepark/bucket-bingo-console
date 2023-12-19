@@ -39,7 +39,7 @@
             "position": "before"
           },
           {
-            "pattern": "{@services/**/*,@tanstack/**/*,axios}",
+            "pattern": "{@services/**/*,@tanstack/**/*,axios,@hooks/**/*}",
             "group": "external",
             "position": "after"
           },

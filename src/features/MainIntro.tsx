@@ -1,7 +1,7 @@
 import { Box, Button, Container, Typography } from '@mui/material';
 
 const MainIntro = () => (
-  <Box sx={{ py: 10, bgcolor: `blueGrey.dark` }}>
+  <Box sx={{ py: 10, bgcolor: (theme) => `blueGrey.50` }}>
     <Container maxWidth="xl">
       <Typography variant="h3">Welcome!</Typography>
       <Typography variant="body2">

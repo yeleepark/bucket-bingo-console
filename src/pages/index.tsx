@@ -1,7 +1,8 @@
 import { ReactElement } from 'react';
 
+import useBingoBoardsQuery from '@hooks/queries/useBingoBoardsQuery';
 import { BINGO_BOARDS_API_URL, getBoards } from '@services/getBoards';
-import { QueryClient, useQuery } from '@tanstack/react-query';
+import { QueryClient } from '@tanstack/react-query';
 
 import Layout from '@components/Layout/Layout';
 import { Box } from '@mui/material';
@@ -10,10 +11,7 @@ import BingoBoardList from '@features/BingoBoardList';
 import MainIntro from '@features/MainIntro';
 
 const Home = () => {
-  const { data, status } = useQuery({
-    queryKey: [BINGO_BOARDS_API_URL],
-    queryFn: () => getBoards(),
-  });
+  const { data, status } = useBingoBoardsQuery();
 
   if (status === `pending`) return <></>;
   if (status === `error`) return <>에러</>;

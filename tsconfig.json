@@ -22,7 +22,8 @@
       "@theme/*": ["./src/theme/*"],
       "@services/*": ["./src/services/*"],
       "@components/*": ["./src/components/*"],
-      "@features/*": ["./src/features/*"]
+      "@features/*": ["./src/features/*"],
+      "@hooks/*": ["./src/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
