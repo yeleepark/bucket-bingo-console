@@ -1,8 +1,9 @@
 import { Noto_Sans_KR } from 'next/font/google';
-import { createTheme } from '@mui/material/styles';
-import { blueGrey } from '@mui/material/colors';
 
-export const noto_sans = Noto_Sans_KR({
+import { blueGrey } from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
+
+const noto_sans = Noto_Sans_KR({
   weight: ['100', '300', '400', '500', '700'],
   subsets: ['latin'],
   display: 'fallback',
@@ -23,7 +24,7 @@ declare module '@mui/material/styles' {
 const theme = createTheme({
   palette: { blueGrey: { ...blueGrey } },
   typography: {
-    fontFamily: noto_sans.style.fontFamily,
+    fontFamily: [noto_sans.style.fontFamily].join(''),
   },
   components: {
     MuiCssBaseline: {

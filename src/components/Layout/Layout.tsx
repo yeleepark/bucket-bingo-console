@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
-import AppBar from './AppBar';
-import Footer from './Footer';
+
+import AppBar from '@components/Layout/AppBar';
+import Footer from '@components/Layout/Footer';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (

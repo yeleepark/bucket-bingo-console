@@ -1,5 +1,6 @@
-import { Grid } from '@mui/material';
 import { ReactNode, useRef } from 'react';
+
+import { Grid } from '@mui/material';
 
 interface BingoBoardProps {
   size: number;

@@ -1,5 +1,6 @@
+import { BingoSqureStatus } from '@services/schema';
+
 import { Box, Grid } from '@mui/material';
-import { BingoSqureStatus } from '../../services/schema';
 
 interface BingoSqureProps {
   status: BingoSqureStatus;

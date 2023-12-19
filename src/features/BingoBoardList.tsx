@@ -1,3 +1,7 @@
+import { useRouter } from 'next/router';
+
+import { BoardsResponse } from '@services/getBoards';
+
 import BingoBoard from '@components/Bingo/BingoBoard';
 import BingoSqure from '@components/Bingo/BingoSqure';
 import {
@@ -11,8 +15,6 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import { BoardsResponse } from '../services/getBoards';
-import { useRouter } from 'next/router';
 
 interface BingoBoardListProps {
   data: BoardsResponse['items'];

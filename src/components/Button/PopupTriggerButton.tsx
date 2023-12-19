@@ -1,5 +1,6 @@
-import { Button, ButtonProps as MuiButtonProps } from '@mui/material';
 import { FC, ReactNode, useState } from 'react';
+
+import { Button, ButtonProps as MuiButtonProps } from '@mui/material';
 
 interface PopupTriggerButtonProps extends MuiButtonProps {
   popup: ReactNode;

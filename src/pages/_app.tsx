@@ -1,13 +1,15 @@
-import Head from 'next/head';
-import { AppProps } from 'next/app';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import theme from '@theme/theme';
-import createEmotionCache from '@theme/createEmotionCache';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactNode, useState } from 'react';
 import { NextPage } from 'next';
+import { AppProps } from 'next/app';
+import Head from 'next/head';
+import { ReactNode, useState } from 'react';
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import createEmotionCache from '@theme/createEmotionCache';
+import theme from '@theme/theme';
 
 type Page<P = object> = NextPage<P> & {
   getLayout?: (page: ReactNode) => ReactNode;

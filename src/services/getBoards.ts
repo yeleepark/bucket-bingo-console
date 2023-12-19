@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { BingoBoard } from './schema';
 
 const BINGO_BOARDS_API_URL = `/dummy/getBoards.json`;

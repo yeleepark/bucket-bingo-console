@@ -1,3 +1,9 @@
+import { useCallback, useState } from 'react';
+import { useForm } from 'react-hook-form';
+
+import { PostBoardsRequest, postBoards } from '@services/postBoard';
+import { useMutation } from '@tanstack/react-query';
+
 import {
   Box,
   Button,
@@ -8,10 +14,6 @@ import {
   InputLabel,
   TextField,
 } from '@mui/material';
-import { useForm } from 'react-hook-form';
-import { useCallback, useState } from 'react';
-import { PostBoardsRequest, postBoards } from '../../services/postBoard';
-import { useMutation } from '@tanstack/react-query';
 
 const BingoBoardDialog = () => {
   const [open, setOpen] = useState(true);

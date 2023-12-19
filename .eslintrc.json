@@ -14,10 +14,54 @@
   "ignorePatterns": ["node_modules/"],
   "extends": [
     "next/core-web-vitals",
+    "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
   "rules": {
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "sibling",
+          "parent",
+          "index",
+          "type",
+          "unknown"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "{react*,react/**/*,next*,next/**/*}",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "{@services/**/*,@tanstack/**/*,axios}",
+            "group": "external",
+            "position": "after"
+          },
+          {
+            "pattern": "{@features/**/*}",
+            "group": "external",
+            "position": "after"
+          },
+          {
+            "pattern": "{@emotion/**/*,@mui*,@mui/**/*,@components/**/*,@theme/**/*}",
+            "group": "external",
+            "position": "after"
+          }
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "pathGroupsExcludedImportTypes": ["builtin"]
+      }
+    ],
     "react/jsx-props-no-spreading": "off",
     "prettier/prettier": "error",
     "object-curly-newline": [

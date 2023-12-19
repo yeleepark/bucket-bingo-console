@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { BingoBoard } from './schema';
 
 const patchBoardStart = async (boardId: BingoBoard['id']) => {
