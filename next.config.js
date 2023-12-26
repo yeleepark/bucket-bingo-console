@@ -5,6 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const nextConfig = {
+  compiler: { styledComponents: true },
   experimental: { webpackBuildWorker: true },
 };
 
