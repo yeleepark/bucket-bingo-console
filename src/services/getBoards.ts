@@ -12,7 +12,7 @@ interface BoardsResponse {
   totalPageCount: number;
 }
 
-const getBoards = async (params: {
+const getBoards = async (params?: {
   pageSize: string;
   pageOffset: string;
 }): Promise<BoardsResponse> => {
