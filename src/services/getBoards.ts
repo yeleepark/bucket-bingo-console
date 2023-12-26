@@ -12,8 +12,13 @@ interface BoardsResponse {
   totalPageCount: number;
 }
 
-const getBoards = async (): Promise<BoardsResponse> => {
-  const response = await axios.get<BoardsResponse>(BINGO_BOARDS_API_URL);
+const getBoards = async (params: {
+  pageSize: string;
+  pageOffset: string;
+}): Promise<BoardsResponse> => {
+  const response = await axios.get<BoardsResponse>(BINGO_BOARDS_API_URL, {
+    params: params,
+  });
   return response?.data;
 };
 

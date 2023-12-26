@@ -1,9 +1,8 @@
 import { useRouter } from 'next/router';
 
-import { BoardsResponse } from '@services/getBoards';
+import useBingoBoardsQuery from '@hooks/queries/useBingoBoardsQuery';
 
 import BingoBoard from '@components/Bingo/BingoBoard';
-import BingoSqure from '@components/Bingo/BingoSqure';
 import {
   Box,
   Card,
@@ -13,19 +12,22 @@ import {
   CardMedia,
   Container,
   Grid,
+  Pagination,
   Typography,
 } from '@mui/material';
 
-interface BingoBoardListProps {
-  data: BoardsResponse['items'];
-}
-const BingoBoardList = ({ data }: BingoBoardListProps) => {
+const BingoBoardList = () => {
   const router = useRouter();
+  const { data } = useBingoBoardsQuery();
+  const handleClickPagnation = (page: number) => {
+    const url = `${router.pathname}?pageOffset=${page - 1}`;
+    router.push(url, `/`, { shallow: true });
+  };
   return (
     <Box sx={{ py: 5 }}>
       <Container maxWidth="xl">
         <Box my={4}>
-          <Typography variant="h6">🔥 빙고 대결 중 🔥</Typography>
+          <Typography variant="h6">🔥 대결중인 빙고 🔥</Typography>
         </Box>
         <Grid
           container
@@ -33,7 +35,7 @@ const BingoBoardList = ({ data }: BingoBoardListProps) => {
           spacing={4}
           alignItems={`stretch`}
         >
-          {data?.map((item) => (
+          {data?.items.map((item) => (
             <Grid key={item.id} item xs={1}>
               <Card
                 onClick={() => router.push(`details/${item.id}`)}
@@ -46,11 +48,7 @@ const BingoBoardList = ({ data }: BingoBoardListProps) => {
                   />
                   <CardMedia>
                     <CardContent>
-                      <BingoBoard size={item.size}>
-                        {item?.squares?.map((i) => (
-                          <BingoSqure key={i.order} status={i.status} />
-                        ))}
-                      </BingoBoard>
+                      <BingoBoard data={item} />
                     </CardContent>
                   </CardMedia>
                 </CardActionArea>
@@ -58,6 +56,12 @@ const BingoBoardList = ({ data }: BingoBoardListProps) => {
             </Grid>
           ))}
         </Grid>
+        <Pagination
+          count={data?.totalPageCount}
+          variant="outlined"
+          color="secondary"
+          onChange={(_, page) => handleClickPagnation(page)}
+        />
       </Container>
     </Box>
   );

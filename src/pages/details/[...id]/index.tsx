@@ -4,8 +4,6 @@ import { ReactElement } from 'react';
 import { BINGG_DETAIL_API, getBoard } from '@services/getBoard';
 import { useQuery } from '@tanstack/react-query';
 
-import BingoBoard from '@components/Bingo/BingoBoard';
-import BingoSqure from '@components/Bingo/BingoSqure';
 import Layout from '@components/Layout/Layout';
 import { Box, Container, Typography } from '@mui/material';
 
@@ -23,13 +21,6 @@ const BingoDetailPage = () => {
         <Typography variant="h2">Detail페이지입니다</Typography>
         <Typography>빙고 이름 : {data?.name}</Typography>
         <Typography>빙고 설명 :{data?.description}</Typography>
-        <Box width={`50%`}>
-          <BingoBoard size={5}>
-            {data?.squares?.map((i) => (
-              <BingoSqure key={i.order} status={i.status} />
-            ))}
-          </BingoBoard>
-        </Box>
       </Container>
     </Box>
   );
