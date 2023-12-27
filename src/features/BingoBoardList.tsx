@@ -25,7 +25,7 @@ const BingoBoardList = () => {
   };
   return (
     <Box sx={{ py: 5 }}>
-      <Container maxWidth="xl">
+      <Container>
         <Box my={4}>
           <Typography variant="h6">🔥 대결중인 빙고 🔥</Typography>
         </Box>

@@ -4,17 +4,16 @@ import { BINGO_BOARDS_API_URL, getBoards } from '@services/getBoards';
 import { QueryClient } from '@tanstack/react-query';
 
 import Layout from '@components/Layout/Layout';
-import { Box } from '@mui/material';
 
 import BingoBoardList from '@features/BingoBoardList';
 import MainIntro from '@features/MainIntro';
 
 const Home = () => {
   return (
-    <Box sx={{ bgcolor: 'background.paper' }}>
+    <>
       <MainIntro />
       <BingoBoardList />
-    </Box>
+    </>
   );
 };
 

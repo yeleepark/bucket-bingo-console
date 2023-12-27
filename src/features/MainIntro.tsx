@@ -1,20 +1,38 @@
-import { Box, Button, Container, Typography } from '@mui/material';
+import dynamic from 'next/dynamic';
+
+import { ArrowDownwardRounded, NavigateNextRounded } from '@mui/icons-material';
+import { Box, Button, Container, IconButton, Typography } from '@mui/material';
+
+const ConfettieLottie = dynamic(
+  () => import('@components/Lottie/ConfettieLottie'),
+  { ssr: false },
+);
 
 const MainIntro = () => (
-  <Box sx={{ py: 10, bgcolor: `blueGrey.50` }}>
-    <Container maxWidth="xl">
-      <Typography variant="h3">Welcome!</Typography>
-      <Typography variant="body2">
-        <Typography component={`strong`} variant="body2" color={`primary`}>
-          버킷빙고
-        </Typography>
-        는 당신의 꿈과 목표를 빙고판으로 만들어 도전과 성장의 여정으로 바꿉니다.
+  <Box
+    sx={{
+      display: `flex`,
+      py: 10,
+      bgcolor: `blueGrey.50`,
+      height: `calc(100dvh - 64px)`,
+    }}
+  >
+    <Container sx={{ textAlign: `center` }}>
+      <Box width={`20%`} sx={{ mb: 4, mx: `auto` }}>
+        <ConfettieLottie />
+      </Box>
+      <Typography variant="h3" fontWeight={700} mb={1}>
+        인생을 모험으로
       </Typography>
-      <Typography variant="body2">
-        함께 빙고 대결을 통해 목표를 달성하고, 스스로의 한계를 뛰어넘으세요.
+      <Typography component={`strong`} variant="h6">
+        버킷빙고로 숨은 행복을 찾아봐요
       </Typography>
-      <Button variant={`outlined`}>알아보기</Button>
-      <Button variant={`contained`}>만들기</Button>
+      <Box my={2}>
+        <Button endIcon={<NavigateNextRounded />}>도전하기</Button>
+      </Box>
+      <IconButton>
+        <ArrowDownwardRounded />
+      </IconButton>
     </Container>
   </Box>
 );
