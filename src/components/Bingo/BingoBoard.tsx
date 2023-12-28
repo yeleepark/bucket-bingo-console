@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react';
+
 import { BingoBoard, BingoSqureStatus } from '@services/schema';
 
 import { Box, Grid } from '@mui/material';
@@ -25,13 +27,25 @@ interface BingoBoardProps {
   data: BingoBoard;
 }
 const BingoBoard = ({ data }: BingoBoardProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (ref.current) {
+        setHeight(ref.current.clientWidth);
+      }
+    };
+
+    window.addEventListener('resize', updateHeight);
+    updateHeight();
+
+    return () => {
+      window.removeEventListener('resize', updateHeight);
+    };
+  }, []);
   return (
-    <Grid
-      container
-      columns={data.size}
-      spacing={0.2}
-      sx={{ border: `1px solid red` }}
-    >
+    <Grid ref={ref} container columns={data.size} spacing={0.2} height={height}>
       {data?.squares?.map((i) => (
         <BingoSqure key={i.order} status={i.status} />
       ))}

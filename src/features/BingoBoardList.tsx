@@ -6,7 +6,6 @@ import BingoBoard from '@components/Bingo/BingoBoard';
 import {
   Box,
   Card,
-  CardActionArea,
   CardContent,
   CardHeader,
   CardMedia,
@@ -24,14 +23,16 @@ const BingoBoardList = () => {
     router.push(url, `/`, { shallow: true });
   };
   return (
-    <Box sx={{ py: 5 }}>
+    <Box sx={{ py: 2, bgcolor: `blueGrey.100` }}>
       <Container>
         <Box my={4}>
-          <Typography variant="h6">🔥 대결중인 빙고 🔥</Typography>
+          <Typography variant="h6" fontWeight={`bold`}>
+            🔥 대결중인 빙고 🔥
+          </Typography>
         </Box>
         <Grid
           container
-          columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}
+          columns={{ xs: 2, sm: 3, lg: 4 }}
           spacing={4}
           alignItems={`stretch`}
         >
@@ -39,19 +40,17 @@ const BingoBoardList = () => {
             <Grid key={item.id} item xs={1}>
               <Card
                 onClick={() => router.push(`details/${item.id}`)}
-                sx={{ height: `100%` }}
+                sx={{ height: `100%`, cursor: `pointer` }}
               >
-                <CardActionArea>
-                  <CardHeader
-                    title={item.name}
-                    subheader={item?.created?.at.toString() || `-`}
-                  />
-                  <CardMedia>
-                    <CardContent>
-                      <BingoBoard data={item} />
-                    </CardContent>
-                  </CardMedia>
-                </CardActionArea>
+                <CardHeader
+                  title={item.name}
+                  subheader={item?.created?.at.toString() || `-`}
+                />
+                <CardMedia>
+                  <CardContent>
+                    <BingoBoard data={item} />
+                  </CardContent>
+                </CardMedia>
               </Card>
             </Grid>
           ))}
