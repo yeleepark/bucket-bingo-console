@@ -41,6 +41,8 @@ const AppBar = (props: Props) => {
           <PopupTriggerButton
             popup={<BingoBoardDialog />}
             variant={`text`}
+            disableRipple
+            disableTouchRipple
             sx={{ fontWeight: 700 }}
           >
             도전하기
