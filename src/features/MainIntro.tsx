@@ -1,7 +1,9 @@
 import dynamic from 'next/dynamic';
 
-import { ArrowDownwardRounded, NavigateNextRounded } from '@mui/icons-material';
-import { Box, Button, Container, IconButton, Typography } from '@mui/material';
+import BingoBoardDialog from '@components/Bingo/BingoBoardDialog';
+import PopupTriggerButton from '@components/Button/PopupTriggerButton';
+import { NavigateNextRounded } from '@mui/icons-material';
+import { Box, Container, Typography } from '@mui/material';
 
 const ConfettieLottie = dynamic(
   () => import('@components/Lottie/ConfettieLottie'),
@@ -11,14 +13,22 @@ const ConfettieLottie = dynamic(
 const MainIntro = () => (
   <Box
     sx={{
-      display: `flex`,
-      py: 10,
+      py: 2,
       bgcolor: `blueGrey.50`,
-      height: `calc(100dvh - 64px)`,
+      height: `100dvh`,
+      minHeight: 445,
     }}
   >
-    <Container sx={{ textAlign: `center` }}>
-      <Box width={`20%`} sx={{ mb: 4, mx: `auto` }}>
+    <Container
+      sx={{
+        display: `flex`,
+        justifyContent: `center`,
+        alignItems: `center`,
+        flexDirection: `column`,
+        height: `100%`,
+      }}
+    >
+      <Box maxWidth={200} height={`40%`}>
         <ConfettieLottie />
       </Box>
       <Typography variant="h3" fontWeight={700} mb={1}>
@@ -28,11 +38,14 @@ const MainIntro = () => (
         버킷빙고로 숨은 행복을 찾아봐요
       </Typography>
       <Box my={2}>
-        <Button endIcon={<NavigateNextRounded />}>도전하기</Button>
+        <PopupTriggerButton
+          variant={`contained`}
+          popup={<BingoBoardDialog />}
+          endIcon={<NavigateNextRounded />}
+        >
+          도전하기
+        </PopupTriggerButton>
       </Box>
-      <IconButton>
-        <ArrowDownwardRounded />
-      </IconButton>
     </Container>
   </Box>
 );

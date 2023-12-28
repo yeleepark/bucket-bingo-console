@@ -17,6 +17,7 @@ const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: () => ({
+        html: { minWidth: 360, minHeight: 500 },
         a: {
           textDecoration: `none`,
           color: `inherit`,
