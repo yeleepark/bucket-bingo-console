@@ -18,6 +18,7 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: () => ({
         html: { minWidth: 360, minHeight: 500 },
+        body: { overscrollBehavior: `none`, scrollBehavior: `smooth` },
         a: {
           textDecoration: `none`,
           color: `inherit`,
