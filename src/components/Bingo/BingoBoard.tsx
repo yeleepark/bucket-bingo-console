@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { BingoBoard, BingoSqureStatus } from '@services/schema';
 
+import { TaskAltOutlined } from '@mui/icons-material';
 import { Box, Grid } from '@mui/material';
 
 interface BingoSqureProps {
@@ -13,12 +14,17 @@ const BingoSqure = ({ status }: BingoSqureProps) => {
       <Box
         sx={{
           height: `100%`,
-          bgcolor: status === `DONE` ? `success.main` : `transparent`,
-          color: status === `DONE` ? `common.white` : `common.black`,
-          border: (theme) => `1px solid ${theme.palette.success.light}`,
+          bgcolor: `grey.A100`,
           borderRadius: 1,
+          display: `flex`,
+          justifyContent: `center`,
+          alignItems: `center`,
         }}
-      />
+      >
+        {status === `DONE` ? (
+          <TaskAltOutlined color={`success`} sx={{ width: `50%` }} />
+        ) : null}
+      </Box>
     </Grid>
   );
 };

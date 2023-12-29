@@ -7,7 +7,6 @@ import {
   Box,
   Card,
   CardContent,
-  CardHeader,
   CardMedia,
   Container,
   Grid,
@@ -23,7 +22,7 @@ const BingoBoardList = () => {
     router.push(url, `/`, { shallow: true });
   };
   return (
-    <Box sx={{ py: 2, bgcolor: `blueGrey.100` }}>
+    <Box sx={{ py: 2 }}>
       <Container>
         <Box my={4}>
           <Typography variant="h6" fontWeight={`bold`}>
@@ -39,28 +38,36 @@ const BingoBoardList = () => {
           {data?.items.map((item) => (
             <Grid key={item.id} item xs={1}>
               <Card
+                elevation={2}
                 onClick={() => router.push(`details/${item.id}`)}
-                sx={{ height: `100%`, cursor: `pointer` }}
+                sx={{
+                  height: `100%`,
+                  cursor: `pointer`,
+                }}
               >
-                <CardHeader
-                  title={item.name}
-                  subheader={item?.created?.at.toString() || `-`}
-                />
-                <CardMedia>
-                  <CardContent>
-                    <BingoBoard data={item} />
-                  </CardContent>
+                <CardMedia sx={{ p: 2 }}>
+                  <BingoBoard data={item} />
                 </CardMedia>
+                <CardContent>
+                  <Typography>{item?.name}</Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {item?.description}
+                  </Typography>
+                  {/* <Typography fontSize={11} textAlign={`right`}>
+                    <>{item?.endDate}</>
+                  </Typography> */}
+                </CardContent>
               </Card>
             </Grid>
           ))}
         </Grid>
-        <Pagination
-          count={data?.totalPageCount}
-          variant="outlined"
-          color="secondary"
-          onChange={(_, page) => handleClickPagnation(page)}
-        />
+        <Box my={4} display={`flex`} justifyContent={`center`}>
+          <Pagination
+            color={`primary`}
+            count={data?.totalPageCount}
+            onChange={(_, page) => handleClickPagnation(page)}
+          />
+        </Box>
       </Container>
     </Box>
   );

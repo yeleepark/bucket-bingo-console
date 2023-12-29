@@ -11,14 +11,7 @@ const ConfettieLottie = dynamic(
 );
 
 const MainIntro = () => (
-  <Box
-    sx={{
-      py: 2,
-      bgcolor: `blueGrey.50`,
-      height: `100dvh`,
-      minHeight: 445,
-    }}
-  >
+  <Box sx={{ py: 2, height: `100dvh`, minHeight: 445 }}>
     <Container
       sx={{
         display: `flex`,
@@ -37,15 +30,14 @@ const MainIntro = () => (
       <Typography component={`strong`} variant="h6">
         버킷빙고로 숨은 행복을 찾아봐요
       </Typography>
-      <Box my={2}>
-        <PopupTriggerButton
-          variant={`contained`}
-          popup={<BingoBoardDialog />}
-          endIcon={<NavigateNextRounded />}
-        >
-          도전하기
-        </PopupTriggerButton>
-      </Box>
+      <PopupTriggerButton
+        variant={`contained`}
+        endIcon={<NavigateNextRounded />}
+        popup={<BingoBoardDialog />}
+        sx={{ mt: 2 }}
+      >
+        도전하기
+      </PopupTriggerButton>
     </Container>
   </Box>
 );
