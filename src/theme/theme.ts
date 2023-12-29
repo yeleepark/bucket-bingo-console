@@ -1,19 +1,15 @@
-import { blueGrey } from '@mui/material/colors';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
-declare module '@mui/material/styles' {
-  interface Palette {
-    blueGrey: Palette['primary'];
-  }
-
-  interface PaletteOptions {
-    blueGrey?: PaletteOptions['primary'];
-  }
-}
-
-// Create a theme instance.
 const theme = createTheme({
-  palette: { blueGrey: { ...blueGrey } },
+  palette: {
+    primary: { main: `#FF5577` },
+    secondary: { main: `#016a70` },
+    success: { main: `#5475FF` },
+    warning: { main: `#FFD354` },
+    text: { primary: `#332226` },
+    grey: { 500: `#DBD9D7` },
+    background: { default: `#FFFCFA`, paper: `#FFFDFA` },
+  },
   components: {
     MuiCssBaseline: {
       styleOverrides: () => ({
