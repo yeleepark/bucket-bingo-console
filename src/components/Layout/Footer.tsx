@@ -7,7 +7,7 @@ const Footer = () => (
   >
     <Container sx={{ textAlign: `right` }}>
       <Typography fontWeight={200} fontSize={11}>
-        Copyright {new Date().getFullYear()}. Team INEG. ALL RIGHTS RESERVED.
+        © {new Date().getFullYear()}. INEG. All rights reserved.
       </Typography>
     </Container>
   </Box>
