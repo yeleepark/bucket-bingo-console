@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 
-import useBingoSuccess from '@hooks/useBingoSuccess';
 import { BingoBoard, BingoSqureStatus } from '@services/schema';
 
 import { Box, Grid } from '@mui/material';
@@ -32,8 +31,6 @@ const BingoBoard = ({ data }: BingoBoardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
-  const result = useBingoSuccess(data?.size, data?.squares);
-
   useEffect(() => {
     const updateHeight = () => {
       if (ref.current) {
@@ -49,20 +46,11 @@ const BingoBoard = ({ data }: BingoBoardProps) => {
     };
   }, []);
   return (
-    <>
-      <Grid
-        ref={ref}
-        container
-        columns={data.size}
-        spacing={0.2}
-        height={height}
-      >
-        {data?.squares?.map((i) => (
-          <BingoSqure key={i.order} status={i.status} />
-        ))}
-      </Grid>
-      {result}
-    </>
+    <Grid ref={ref} container columns={data.size} spacing={0.2} height={height}>
+      {data?.squares?.map((i) => (
+        <BingoSqure key={i.order} status={i.status} />
+      ))}
+    </Grid>
   );
 };
 export default BingoBoard;

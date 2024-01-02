@@ -14,6 +14,8 @@ import {
   Typography,
 } from '@mui/material';
 
+import calculateBingoSuccessCount from '@utils/calculateSuccessBingoCount';
+
 const BingoBoardList = () => {
   const router = useRouter();
   const { data } = useBingoBoardsQuery();
@@ -22,6 +24,7 @@ const BingoBoardList = () => {
     const url = `${router.pathname}?pageOffset=${page - 1}`;
     router.push(url, `/`, { shallow: true });
   };
+
   return (
     <Box sx={{ py: 2 }}>
       <Container>
@@ -51,11 +54,16 @@ const BingoBoardList = () => {
                   <BingoBoard data={item} />
                 </CardMedia>
                 <CardContent>
+                  <Typography fontSize={12}>
+                    {calculateBingoSuccessCount(item.size, item.squares)}줄 성공
+                  </Typography>
                   <Typography>{item?.name}</Typography>
                   <Typography variant="body2" color="text.secondary">
                     {item?.description}
                   </Typography>
-                  <Typography></Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {item?.created?.at?.toString()}
+                  </Typography>
                 </CardContent>
               </Card>
             </Grid>

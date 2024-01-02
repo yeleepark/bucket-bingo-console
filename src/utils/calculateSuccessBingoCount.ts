@@ -1,6 +1,9 @@
 import { BingoSquare } from '@services/schema';
 
-const useBingoSuccess = (size: number, data: BingoSquare[]) => {
+const calculateBingoSuccessCount = (
+  size: number,
+  data: BingoSquare[],
+): number => {
   const bingoBoardArray = Array.from({ length: size }, (_, i) =>
     Array.from(
       { length: size },
@@ -21,6 +24,7 @@ const useBingoSuccess = (size: number, data: BingoSquare[]) => {
   const mainDiagonal = bingoBoardArray.every((row, index) => row[index])
     ? 1
     : 0;
+
   const antiDiagonal = bingoBoardArray.every(
     (row, index) => row[size - 1 - index],
   )
@@ -30,4 +34,4 @@ const useBingoSuccess = (size: number, data: BingoSquare[]) => {
   return horizontal + vertical + mainDiagonal + antiDiagonal;
 };
 
-export default useBingoSuccess;
+export default calculateBingoSuccessCount;
