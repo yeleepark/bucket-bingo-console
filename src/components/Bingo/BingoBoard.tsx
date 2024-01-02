@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
+import useBingoSuccess from '@hooks/useBingoSuccess';
 import { BingoBoard, BingoSqureStatus } from '@services/schema';
 
-import { TaskAltOutlined } from '@mui/icons-material';
 import { Box, Grid } from '@mui/material';
 
 interface BingoSqureProps {
@@ -14,17 +14,13 @@ const BingoSqure = ({ status }: BingoSqureProps) => {
       <Box
         sx={{
           height: `100%`,
-          bgcolor: `grey.A100`,
+          bgcolor: status === `DONE` ? `success.light` : `grey.A100`,
           borderRadius: 1,
           display: `flex`,
           justifyContent: `center`,
           alignItems: `center`,
         }}
-      >
-        {status === `DONE` ? (
-          <TaskAltOutlined color={`success`} sx={{ width: `50%` }} />
-        ) : null}
-      </Box>
+      />
     </Grid>
   );
 };
@@ -35,6 +31,8 @@ interface BingoBoardProps {
 const BingoBoard = ({ data }: BingoBoardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
+
+  const result = useBingoSuccess(data?.size, data?.squares);
 
   useEffect(() => {
     const updateHeight = () => {
@@ -51,11 +49,20 @@ const BingoBoard = ({ data }: BingoBoardProps) => {
     };
   }, []);
   return (
-    <Grid ref={ref} container columns={data.size} spacing={0.2} height={height}>
-      {data?.squares?.map((i) => (
-        <BingoSqure key={i.order} status={i.status} />
-      ))}
-    </Grid>
+    <>
+      <Grid
+        ref={ref}
+        container
+        columns={data.size}
+        spacing={0.2}
+        height={height}
+      >
+        {data?.squares?.map((i) => (
+          <BingoSqure key={i.order} status={i.status} />
+        ))}
+      </Grid>
+      {result}
+    </>
   );
 };
 export default BingoBoard;

@@ -7,7 +7,7 @@ type BingoObjective = {
   totalCount: number;
   currentCount: number;
 };
-type BingoSqare = {
+type BingoSquare = {
   order: number;
   objective?: BingoObjective;
   status: BingoSqureStatus;
@@ -18,7 +18,7 @@ type BingoBoard = {
   name: string;
   description?: string;
   size: 5 | 6 | 7 | 8 | 9 | 10;
-  squares: BingoSqare[];
+  squares: BingoSquare[];
   status: BingoBoardStatus;
   startDate?: Date;
   endDate?: Date;
@@ -29,7 +29,7 @@ export type {
   BingoSqureStatus,
   User,
   UserContext,
-  BingoSqare,
+  BingoSquare,
   BingoObjective,
   BingoBoard,
 };

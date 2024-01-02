@@ -17,6 +17,7 @@ import {
 const BingoBoardList = () => {
   const router = useRouter();
   const { data } = useBingoBoardsQuery();
+
   const handleClickPagnation = (page: number) => {
     const url = `${router.pathname}?pageOffset=${page - 1}`;
     router.push(url, `/`, { shallow: true });
@@ -43,6 +44,7 @@ const BingoBoardList = () => {
                 sx={{
                   height: `100%`,
                   cursor: `pointer`,
+                  '&:hover': { boxShadow: 4 },
                 }}
               >
                 <CardMedia sx={{ p: 2 }}>
@@ -53,9 +55,7 @@ const BingoBoardList = () => {
                   <Typography variant="body2" color="text.secondary">
                     {item?.description}
                   </Typography>
-                  {/* <Typography fontSize={11} textAlign={`right`}>
-                    <>{item?.endDate}</>
-                  </Typography> */}
+                  <Typography></Typography>
                 </CardContent>
               </Card>
             </Grid>
