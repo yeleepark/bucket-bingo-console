@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { ReactElement, cloneElement } from 'react';
 
-import BingoBoardDialog from '@components/Bingo/BingoBoardDialog';
 import PopupTriggerButton from '@components/Button/PopupTriggerButton';
 import GridViewSharpIcon from '@mui/icons-material/GridViewSharp';
 import { AppBar as MuiAppBar, Toolbar, Typography, Box } from '@mui/material';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
+
+import AddBingoBoardDialog from '@features/AddBingoBoardDialog';
 
 interface Props {
   window?: () => Window;
@@ -39,7 +40,7 @@ const AppBar = (props: Props) => {
             </Box>
           </Link>
           <PopupTriggerButton
-            popup={<BingoBoardDialog />}
+            popup={<AddBingoBoardDialog />}
             variant={`text`}
             disableRipple
             disableTouchRipple

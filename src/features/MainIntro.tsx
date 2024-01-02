@@ -1,9 +1,10 @@
 import dynamic from 'next/dynamic';
 
-import BingoBoardDialog from '@components/Bingo/BingoBoardDialog';
 import PopupTriggerButton from '@components/Button/PopupTriggerButton';
 import { NavigateNextRounded } from '@mui/icons-material';
 import { Box, Container, Typography } from '@mui/material';
+
+import AddBingoBoardDialog from './AddBingoBoardDialog';
 
 const ConfettieLottie = dynamic(
   () => import('@components/Lottie/ConfettieLottie'),
@@ -33,7 +34,7 @@ const MainIntro = () => (
       <PopupTriggerButton
         variant={`contained`}
         endIcon={<NavigateNextRounded />}
-        popup={<BingoBoardDialog />}
+        popup={<AddBingoBoardDialog />}
         sx={{ mt: 2 }}
       >
         도전하기

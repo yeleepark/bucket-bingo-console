@@ -10,17 +10,24 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
+  DialogProps,
   DialogTitle,
   InputLabel,
   TextField,
+  useMediaQuery,
 } from '@mui/material';
+import theme from '@theme/theme';
 
-const BingoBoardDialog = () => {
+const ResponsiveDialog = (props: DialogProps) => {
+  const isFullScreen = useMediaQuery(theme?.breakpoints?.down('md'));
+  return <Dialog fullScreen={isFullScreen} {...props} />;
+};
+
+const AddBingoBoardDialog = () => {
   const [open, setOpen] = useState(true);
+
   const { register, handleSubmit } = useForm<PostBoardsRequest>({
-    defaultValues: {
-      size: 5,
-    },
+    defaultValues: { size: 5 },
   });
   const { mutate } = useMutation({
     mutationFn: (boards: PostBoardsRequest) => postBoards(boards),
@@ -29,7 +36,7 @@ const BingoBoardDialog = () => {
     setOpen(false);
   }, []);
   return (
-    <Dialog
+    <ResponsiveDialog
       open={open}
       onClose={handleOnClose}
       onSubmit={handleSubmit((data) => mutate(data))}
@@ -70,7 +77,7 @@ const BingoBoardDialog = () => {
           저장
         </Button>
       </DialogActions>
-    </Dialog>
+    </ResponsiveDialog>
   );
 };
-export default BingoBoardDialog;
+export default AddBingoBoardDialog;
