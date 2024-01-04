@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 
 import calculateBingoSuccessCount from '@utils/calculateSuccessBingoCount';
+import { getFormattedDateYYYYMMDD } from '@utils/dateFormat';
 
 const BingoBoardList = () => {
   const router = useRouter();
@@ -54,15 +55,18 @@ const BingoBoardList = () => {
                   <BingoBoard data={item} />
                 </CardMedia>
                 <CardContent>
-                  <Typography fontSize={12}>
+                  <Typography fontSize={12} textAlign={`right`}>
                     {calculateBingoSuccessCount(item.size, item.squares)}줄 성공
                   </Typography>
-                  <Typography>{item?.name}</Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant={`subtitle1`}>{item?.name}</Typography>
+                  <Typography variant="body1" color="text.secondary">
                     {item?.description}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {item?.created?.at?.toString()}
+                    {getFormattedDateYYYYMMDD(item?.created?.at)}
+                    {item?.endDate !== undefined
+                      ? ` ~ ${getFormattedDateYYYYMMDD(item?.endDate)}`
+                      : null}
                   </Typography>
                 </CardContent>
               </Card>
