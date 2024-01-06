@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-import { BingoBoard, BingoSqare, BingoSqureStatus } from './schema';
+import { BingoBoard, BingoSquare, BingoSqureStatus } from './schema';
 
 interface PatchSquareRequest {
   status: BingoSqureStatus;
 }
 const patchSquare = async (
   boardId: BingoBoard['id'],
-  squareOrder: BingoSqare['order'],
+  squareOrder: BingoSquare['order'],
   req: PatchSquareRequest,
 ) => {
   const response = await axios.patch(

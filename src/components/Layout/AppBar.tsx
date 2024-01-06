@@ -1,9 +1,15 @@
 import Link from 'next/link';
-import { ReactElement, cloneElement } from 'react';
+import { FC, ReactElement, cloneElement } from 'react';
 
 import PopupTriggerButton from '@components/Button/PopupTriggerButton';
 import GridViewSharpIcon from '@mui/icons-material/GridViewSharp';
-import { AppBar as MuiAppBar, Toolbar, Typography, Box } from '@mui/material';
+import {
+  AppBar as MuiAppBar,
+  Toolbar,
+  Typography,
+  Box,
+  AppBarProps,
+} from '@mui/material';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 
 import AddBingoBoardDialog from '@features/AddBingoBoardDialog';
@@ -26,7 +32,7 @@ function ElevationScroll(props: Props) {
   });
 }
 
-const AppBar = (props: Props) => {
+const AppBar: FC<AppBarProps> = (props) => {
   return (
     <ElevationScroll {...props}>
       <MuiAppBar color={'transparent'} sx={{ backdropFilter: `blur(12px)` }}>
