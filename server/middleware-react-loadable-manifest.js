@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{\"../features/MainIntro.tsx -> @components/Lottie/ConfettieLottie\":{\"id\":\"../features/MainIntro.tsx -> @components/Lottie/ConfettieLottie\",\"files\":[\"static/chunks/src_components_Lottie_ConfettieLottie_tsx.js\"]}}"
+self.__REACT_LOADABLE_MANIFEST='{"../features/MainIntro.tsx -> @components/Lottie/ConfettieLottie":{"id":2591,"files":["static/chunks/ea88be26.f4d1fcbd94a0d09f.js","static/chunks/260.d135f974a07a7791.js","static/chunks/591.64928708101650d7.js"]}}';
