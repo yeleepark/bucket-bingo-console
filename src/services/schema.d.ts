@@ -20,9 +20,11 @@ type BingoBoard = {
   size: 5 | 6 | 7 | 8 | 9 | 10;
   squares: BingoSquare[];
   status: BingoBoardStatus;
+  bingo: { targetCount: number; currentCount: number };
   startDate?: Date;
   endDate?: Date;
   created: UserContext;
+  updated: UserContext;
 };
 export type {
   BingoBoardStatus,
