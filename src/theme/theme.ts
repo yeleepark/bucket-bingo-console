@@ -7,7 +7,6 @@ const theme = createTheme({
     success: { main: `#5475FF` },
     warning: { main: `#FFD354` },
     text: { primary: `#332226` },
-    grey: { 500: `#DBD9D7` },
     background: { default: `#FFFCFA`, paper: `#FFFDFA` },
   },
   components: {

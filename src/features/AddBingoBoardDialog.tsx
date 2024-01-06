@@ -12,14 +12,16 @@ import {
   DialogContent,
   DialogProps,
   DialogTitle,
-  InputLabel,
   TextField,
+  Theme,
+  Typography,
   useMediaQuery,
 } from '@mui/material';
-import theme from '@theme/theme';
 
 const ResponsiveDialog = (props: DialogProps) => {
-  const isFullScreen = useMediaQuery(theme?.breakpoints?.down('md'));
+  const isFullScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down('md'),
+  );
   return <Dialog fullScreen={isFullScreen} {...props} />;
 };
 
@@ -41,34 +43,65 @@ const AddBingoBoardDialog = () => {
       onClose={handleOnClose}
       onSubmit={handleSubmit((data) => mutate(data))}
       component={`form`}
-      maxWidth={`md`}
+      maxWidth={`sm`}
       fullWidth
     >
-      <DialogTitle>빙고생성하기</DialogTitle>
+      <DialogTitle>
+        <Typography variant="h5">빙고생성하기</Typography>
+      </DialogTitle>
       <DialogContent>
         <Box py={2}>
-          <InputLabel>빙고이름</InputLabel>
-          <TextField
-            inputProps={{ ...register(`name`) }}
-            InputLabelProps={{ shrink: true }}
-            placeholder="빙고이름"
-          />
-          <InputLabel>빙고크기</InputLabel>
+          <Box display={`flex`}>
+            <TextField
+              inputProps={{ ...register(`name`) }}
+              InputLabelProps={{ shrink: true }}
+              label="빙고이름"
+              margin={`normal`}
+              sx={{ width: `80%`, mr: 2 }}
+            />
+          </Box>
           <TextField
             type="number"
-            InputLabelProps={{
-              shrink: true,
+            InputLabelProps={{ shrink: true }}
+            margin={`normal`}
+            label={`size`}
+            inputProps={{
+              ...register(`size`),
+              type: `number`,
+              min: 5,
+              max: 10,
             }}
-            inputProps={{ ...register(`size`), min: 5, max: 10 }}
+            sx={{ minWidth: 120 }}
           />
-          <InputLabel>설명</InputLabel>
           <TextField
-            inputProps={{ ...register(`description`) }}
-            placeholder="description"
-            InputProps={{ multiline: true, minRows: 3 }}
+            type="number"
+            InputLabelProps={{ shrink: true }}
+            margin={`normal`}
+            label={`size`}
+            inputProps={{
+              ...register(`size`),
+              type: `number`,
+              min: 5,
+              max: 10,
+            }}
+            sx={{ minWidth: 120 }}
           />
-          <InputLabel>만료일</InputLabel>
-          <TextField type={`date`} inputProps={{ ...register(`endDate`) }} />
+          <TextField
+            label="설명"
+            fullWidth
+            inputProps={{ ...register(`description`) }}
+            margin={`normal`}
+            multiline
+            rows={3}
+            InputLabelProps={{ shrink: true }}
+          />
+          <TextField
+            type={`date`}
+            margin={`normal`}
+            label="만료일"
+            InputLabelProps={{ shrink: true }}
+            inputProps={{ ...register(`endDate`) }}
+          />
         </Box>
       </DialogContent>
       <DialogActions>

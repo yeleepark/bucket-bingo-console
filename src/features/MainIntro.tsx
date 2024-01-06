@@ -12,7 +12,7 @@ const ConfettieLottie = dynamic(
 );
 
 const MainIntro = () => (
-  <Box sx={{ py: 2, height: `100dvh`, minHeight: 445 }}>
+  <Box py={2} height={`100dvh`} minHeight={445}>
     <Container
       sx={{
         display: `flex`,
