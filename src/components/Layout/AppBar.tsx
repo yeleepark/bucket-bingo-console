@@ -29,19 +29,19 @@ function ElevationScroll(props: Props) {
 const AppBar = (props: Props) => {
   return (
     <ElevationScroll {...props}>
-      <MuiAppBar color="transparent" sx={{ backdropFilter: `blur(12px)` }}>
+      <MuiAppBar color={'transparent'} sx={{ backdropFilter: `blur(12px)` }}>
         <Toolbar sx={{ justifyContent: `space-between` }}>
-          <Link href={`/`}>
-            <Box display={`flex`} alignItems={`center`}>
-              <GridViewSharpIcon color="primary" />
-              <Typography variant="h6" noWrap ml={1}>
+          <Link href={'/'}>
+            <Box display={'flex'} alignItems={'center'}>
+              <GridViewSharpIcon color={'primary'} />
+              <Typography variant={'h6'} noWrap ml={1}>
                 BUCKET BINGO
               </Typography>
             </Box>
           </Link>
           <PopupTriggerButton
             popup={<AddBingoBoardDialog />}
-            variant={`text`}
+            variant={'text'}
             disableRipple
             disableTouchRipple
             sx={{ fontWeight: 700 }}

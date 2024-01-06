@@ -25,7 +25,7 @@ const BingoListCard: FC<CardProps> = (props) => {
   const { children, ...restProps } = props;
   return (
     <Card
-      variant="outlined"
+      variant={'outlined'}
       ref={cardRef}
       elevation={2}
       sx={{
@@ -36,7 +36,7 @@ const BingoListCard: FC<CardProps> = (props) => {
       }}
       {...restProps}
     >
-      <Stack p={2} height={`100%`} justifyContent={`space-between`}>
+      <Stack p={2} height={'100%'} justifyContent={'space-between'}>
         {children}
       </Stack>
     </Card>

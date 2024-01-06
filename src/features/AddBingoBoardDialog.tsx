@@ -42,29 +42,29 @@ const AddBingoBoardDialog = () => {
       open={open}
       onClose={handleOnClose}
       onSubmit={handleSubmit((data) => mutate(data))}
-      component={`form`}
-      maxWidth={`sm`}
+      component={'form'}
+      maxWidth={'sm'}
       fullWidth
     >
       <DialogTitle>
-        <Typography variant="h5">빙고생성하기</Typography>
+        <Typography variant={'h5'}>빙고생성하기</Typography>
       </DialogTitle>
       <DialogContent>
         <Box py={2}>
-          <Box display={`flex`}>
+          <Box display={'flex'}>
             <TextField
               inputProps={{ ...register(`name`) }}
               InputLabelProps={{ shrink: true }}
-              label="빙고이름"
-              margin={`normal`}
+              label={'빙고이름'}
+              margin={'normal'}
               sx={{ width: `80%`, mr: 2 }}
             />
           </Box>
           <TextField
-            type="number"
+            type={'number'}
             InputLabelProps={{ shrink: true }}
-            margin={`normal`}
-            label={`size`}
+            margin={'normal'}
+            label={'size'}
             inputProps={{
               ...register(`size`),
               type: `number`,
@@ -74,10 +74,10 @@ const AddBingoBoardDialog = () => {
             sx={{ minWidth: 120 }}
           />
           <TextField
-            type="number"
+            type={'number'}
             InputLabelProps={{ shrink: true }}
-            margin={`normal`}
-            label={`size`}
+            margin={'normal'}
+            label={'size'}
             inputProps={{
               ...register(`size`),
               type: `number`,
@@ -87,18 +87,18 @@ const AddBingoBoardDialog = () => {
             sx={{ minWidth: 120 }}
           />
           <TextField
-            label="설명"
+            label={'설명'}
             fullWidth
             inputProps={{ ...register(`description`) }}
-            margin={`normal`}
+            margin={'normal'}
             multiline
             rows={3}
             InputLabelProps={{ shrink: true }}
           />
           <TextField
-            type={`date`}
-            margin={`normal`}
-            label="만료일"
+            type={'date'}
+            margin={'normal'}
+            label={'만료일'}
             InputLabelProps={{ shrink: true }}
             inputProps={{ ...register(`endDate`) }}
           />
@@ -106,7 +106,7 @@ const AddBingoBoardDialog = () => {
       </DialogContent>
       <DialogActions>
         <Button onClick={handleOnClose}>닫기</Button>
-        <Button type={`submit`} variant="contained">
+        <Button type={'submit'} variant={'contained'}>
           저장
         </Button>
       </DialogActions>

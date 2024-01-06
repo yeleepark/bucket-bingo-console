@@ -2,7 +2,7 @@ import { Box, Container, Typography } from '@mui/material';
 
 const Footer = () => (
   <Box
-    component="footer"
+    component={'footer'}
     sx={{ bgcolor: `grey.800`, color: `common.white`, py: 2 }}
   >
     <Container sx={{ textAlign: `right` }}>

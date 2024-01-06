@@ -6,9 +6,7 @@ const BINGG_DETAIL_API = `/dummy/getBoard.json`;
 
 type BoardsDetailResponse = BingoBoard;
 
-const getBoard = async (
-  boardId: BingoBoard['id'],
-): Promise<BoardsDetailResponse> => {
+const getBoard = async (): Promise<BoardsDetailResponse> => {
   const response = await axios.get<BoardsDetailResponse>(
     // `${BINGG_DETAIL_API}/${boardId}`,
     `${BINGG_DETAIL_API}`,

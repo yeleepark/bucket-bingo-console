@@ -17,8 +17,8 @@ const BingoDetailPage = () => {
 
   return (
     <Box>
-      <Container maxWidth="xl" sx={{ py: 10 }}>
-        <Typography variant="h2">Detail페이지입니다</Typography>
+      <Container maxWidth={'xl'} sx={{ py: 10 }}>
+        <Typography variant={'h2'}>Detail페이지입니다</Typography>
         <Typography>빙고 이름 : {data?.name}</Typography>
         <Typography>빙고 설명 :{data?.description}</Typography>
       </Container>

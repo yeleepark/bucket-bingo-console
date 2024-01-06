@@ -38,7 +38,7 @@ const BingoBoardList = () => {
   if (status === `error`) {
     return (
       <Snackbar>
-        <Alert severity="error" variant="filled">
+        <Alert severity={'error'} variant={'filled'}>
           일시적인 통신 장애로 목록을 불러오는데 실패했습니다.
         </Alert>
       </Snackbar>
@@ -48,7 +48,7 @@ const BingoBoardList = () => {
   return (
     <Container sx={{ height: `100%` }}>
       <Box my={4}>
-        <Typography variant="h6" fontWeight={`bold`}>
+        <Typography variant={'h6'} fontWeight={'bold'}>
           🔥 대결중인 빙고 🔥
         </Typography>
       </Box>
@@ -56,20 +56,20 @@ const BingoBoardList = () => {
         container
         columns={{ xs: 2, sm: 3, md: 4 }}
         spacing={4}
-        height={`100%`}
-        alignItems={`stretch`}
+        height={'100%'}
+        alignItems={'stretch'}
       >
         {status === `pending` ? (
           <>
             {Array.from({ length: 12 })?.map((_, index) => (
               <Grid key={index} item xs={1}>
                 <BingoListCard>
-                  <Box p={2} height={`100%`}>
+                  <Box p={2} height={'100%'}>
                     <Skeleton
-                      height={`100%`}
+                      height={'100%'}
                       sx={{ bgColor: `grey.200` }}
-                      variant="rounded"
-                      animation="wave"
+                      variant={'rounded'}
+                      animation={'wave'}
                     />
                   </Box>
                 </BingoListCard>
@@ -83,15 +83,15 @@ const BingoBoardList = () => {
                 <BingoListCard onClick={() => navigateToDetailPage(item?.id)}>
                   <BingoBoard data={item} />
                   <Box>
-                    <Typography fontSize={12} textAlign={`right`}>
+                    <Typography fontSize={12} textAlign={'right'}>
                       {calculateBingoSuccessCount(item.size, item.squares)}줄
                       성공
                     </Typography>
-                    <Typography variant={`subtitle1`}>{item?.name}</Typography>
-                    <Typography variant="body1" color="text.secondary">
+                    <Typography variant={'subtitle1'}>{item?.name}</Typography>
+                    <Typography variant={'body1'} color={'text.secondary'}>
                       {item?.description}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant={'body2'} color={'text.secondary'}>
                       {getFormattedDateYYYYMMDD(item?.created?.at)}
                       {item?.endDate !== undefined
                         ? ` ~ ${getFormattedDateYYYYMMDD(item?.endDate)}`
@@ -104,9 +104,9 @@ const BingoBoardList = () => {
           </>
         )}
       </Grid>
-      <Box my={4} display={`flex`} justifyContent={`center`}>
+      <Box my={4} display={'flex'} justifyContent={'center'}>
         <Pagination
-          color={`primary`}
+          color={'primary'}
           count={data?.totalPageCount}
           onChange={(_, page) => handleClickPagnation(page)}
         />

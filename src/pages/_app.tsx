@@ -28,7 +28,10 @@ export default function MyApp(props: MyAppProps) {
     <CacheProvider value={emotionCache}>
       <QueryClientProvider client={queryClient}>
         <Head>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
+          <meta
+            name={'viewport'}
+            content={'initial-scale=1, width=device-width'}
+          />
         </Head>
         <ThemeProvider theme={theme}>
           <CssBaseline />
