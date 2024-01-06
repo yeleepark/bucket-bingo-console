@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next lint & next dev",
-    "json-server": "json-server --watch --port 4000 ./public/dummy/db.json",
+    "json-server": "json-server --watch ./public/dummy/db.json",
+    "deploy": "gh-pages -d .next",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -40,10 +41,12 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.33.2",
+    "gh-pages": "^6.1.1",
     "prettier": "^3.1.0",
     "typescript": "^5.2.2"
   },
   "main": "index.tsx",
+  "homepage": "https://yeleepark.github.io/bucket-bingo-console/",
   "repository": "https://github.com/yeleepark/bucket-bingo-console.git",
   "author": "yelee park <dev.yelee@gmail.com>",
   "license": "MIT"
