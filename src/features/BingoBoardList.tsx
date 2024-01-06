@@ -9,8 +9,6 @@ import BingoListCard from '@components/Bingo/BingoListCard';
 import {
   Alert,
   Box,
-  CardContent,
-  CardMedia,
   Container,
   Grid,
   Pagination,

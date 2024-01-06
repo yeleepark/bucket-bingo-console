@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, useState } from 'react';
 
-import { Card, CardActionArea, CardProps, Stack } from '@mui/material';
+import { Card, CardProps, Stack } from '@mui/material';
 
 const BingoListCard: FC<CardProps> = (props) => {
   const cardRef = useRef<HTMLDivElement>(null);
