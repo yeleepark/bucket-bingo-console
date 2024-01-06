@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next lint & next dev",
     "json-server": "json-server --watch ./public/dummy/db.json",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d .next",
     "build": "next build",
     "start": "next start",
