@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"../features/MainIntro.tsx -> @components/Lottie/ConfettieLottie\":{\"id\":\"../features/MainIntro.tsx -> @components/Lottie/ConfettieLottie\",\"files\":[\"static/chunks/src_components_Lottie_ConfettieLottie_tsx.js\"]}}"
