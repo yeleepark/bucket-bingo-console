@@ -1,20 +1,19 @@
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { PostBoardsRequest, postBoards } from '@services/postBoard';
-import { useMutation } from '@tanstack/react-query';
+import usePostBingoBoard from '@hooks/mutaions/usePostBingoBoard';
+import { PostBoardRequest } from '@services/postBoard';
 
 import {
-  Box,
   Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogProps,
   DialogTitle,
+  Grid,
   TextField,
   Theme,
-  Typography,
   useMediaQuery,
 } from '@mui/material';
 
@@ -28,15 +27,14 @@ const ResponsiveDialog = (props: DialogProps) => {
 const AddBingoBoardDialog = () => {
   const [open, setOpen] = useState(true);
 
-  const { register, handleSubmit } = useForm<PostBoardsRequest>({
+  const { register, handleSubmit } = useForm<PostBoardRequest>({
     defaultValues: { size: 5 },
   });
-  const { mutate } = useMutation({
-    mutationFn: (boards: PostBoardsRequest) => postBoards(boards),
-  });
+  const { mutate } = usePostBingoBoard();
   const handleOnClose = useCallback(() => {
     setOpen(false);
   }, []);
+
   return (
     <ResponsiveDialog
       open={open}
@@ -46,63 +44,69 @@ const AddBingoBoardDialog = () => {
       maxWidth={'sm'}
       fullWidth
     >
-      <DialogTitle>
-        <Typography variant={'h5'}>빙고생성하기</Typography>
-      </DialogTitle>
+      <DialogTitle>빙고생성하기</DialogTitle>
       <DialogContent>
-        <Box py={2}>
-          <Box display={'flex'}>
+        <Grid container columnSpacing={1}>
+          <Grid item xs={12}>
             <TextField
+              fullWidth
               inputProps={{ ...register(`name`) }}
               InputLabelProps={{ shrink: true }}
               label={'빙고이름'}
               margin={'normal'}
-              sx={{ width: `80%`, mr: 2 }}
             />
-          </Box>
-          <TextField
-            type={'number'}
-            InputLabelProps={{ shrink: true }}
-            margin={'normal'}
-            label={'size'}
-            inputProps={{
-              ...register(`size`),
-              type: `number`,
-              min: 5,
-              max: 10,
-            }}
-            sx={{ minWidth: 120 }}
-          />
-          <TextField
-            type={'number'}
-            InputLabelProps={{ shrink: true }}
-            margin={'normal'}
-            label={'size'}
-            inputProps={{
-              ...register(`size`),
-              type: `number`,
-              min: 5,
-              max: 10,
-            }}
-            sx={{ minWidth: 120 }}
-          />
-          <TextField
-            label={'설명'}
-            fullWidth
-            inputProps={{ ...register(`description`) }}
-            margin={'normal'}
-            multiline
-            rows={3}
-            InputLabelProps={{ shrink: true }}
-          />
-          <TextField
-            type={'date'}
-            margin={'normal'}
-            label={'만료일'}
-            InputLabelProps={{ shrink: true }}
-            inputProps={{ ...register(`endDate`) }}
-          />
-        </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label={'설명'}
+              fullWidth
+              inputProps={{ ...register(`description`) }}
+              margin={'normal'}
+              multiline
+              rows={3}
+              InputLabelProps={{ shrink: true }}
+            />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <TextField
+              fullWidth
+              type={'number'}
+              InputLabelProps={{ shrink: true }}
+              margin={'normal'}
+              label={'빙고판의 사이즈'}
+              inputProps={{
+                ...register(`size`),
+                type: `number`,
+                min: 5,
+                max: 10,
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <TextField
+              fullWidth
+              type={'number'}
+              InputLabelProps={{ shrink: true }}
+              margin={'normal'}
+              label={'목표갯수(줄)'}
+              inputProps={{
+                ...register(`size`),
+                type: `number`,
+                min: 5,
+                max: 10,
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <TextField
+              type={'date'}
+              margin={'normal'}
+              label={'만료일'}
+              InputLabelProps={{ shrink: true }}
+              inputProps={{ ...register(`endDate`) }}
+            />
+          </Grid>
+        </Grid>
       </DialogContent>
       <DialogActions>
         <Button onClick={handleOnClose}>닫기</Button>
@@ -113,4 +117,5 @@ const AddBingoBoardDialog = () => {
     </ResponsiveDialog>
   );
 };
+
 export default AddBingoBoardDialog;

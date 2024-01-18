@@ -27,7 +27,6 @@ const BingoListCard: FC<CardProps> = (props) => {
     <Card
       variant={'outlined'}
       ref={cardRef}
-      elevation={2}
       sx={{
         minHeight: height,
         height: `100%`,
