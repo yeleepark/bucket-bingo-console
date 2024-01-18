@@ -5,7 +5,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const nextConfig = {
-  basePath: '/bucket-bingo-console',
   compiler: { styledComponents: true },
   experimental: { webpackBuildWorker: true },
 };

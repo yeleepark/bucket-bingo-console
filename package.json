@@ -4,9 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next lint & next dev",
-    "json-server": "json-server --watch ./public/dummy/db.json",
-    "predeploy": "next build",
-    "deploy": "gh-pages -d .next",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -20,7 +17,6 @@
     "@mui/material": "^5.14.18",
     "@tanstack/react-query": "^5.8.7",
     "axios": "^1.6.2",
-    "json-server": "^0.17.4",
     "lottie-react": "^2.4.0",
     "next": "14.0.1",
     "react": "^18",
@@ -47,7 +43,6 @@
     "typescript": "^5.2.2"
   },
   "main": "index.tsx",
-  "homepage": "https://yeleepark.github.io/bucket-bingo-console/",
   "repository": "https://github.com/yeleepark/bucket-bingo-console.git",
   "author": "yelee park <dev.yelee@gmail.com>",
   "license": "MIT"
