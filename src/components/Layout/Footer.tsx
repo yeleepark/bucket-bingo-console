@@ -5,7 +5,7 @@ const Footer = () => (
     component={'footer'}
     sx={{ bgcolor: `grey.800`, color: `common.white`, py: 2 }}
   >
-    <Container sx={{ textAlign: `right` }}>
+    <Container maxWidth={`xl`} sx={{ textAlign: `right` }}>
       <Typography fontWeight={200} fontSize={11}>
         © {new Date().getFullYear()}. INEG. All rights reserved.
       </Typography>
