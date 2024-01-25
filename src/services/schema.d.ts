@@ -9,7 +9,7 @@ type BingoObjective = {
 };
 type BingoSquare = {
   order: number;
-  objective?: BingoObjective;
+  objective: BingoObjective | null;
   status: BingoSqureStatus;
   updatedAt: Date;
 };

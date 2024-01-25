@@ -6,21 +6,13 @@
   "squares": [
     {
       "order": 0,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
+      "objective": null,
       "status": "DONE",
       "updatedAt": "2023-11-29T10:31:10.229Z"
     },
     {
       "order": 1,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
+      "objective": null,
       "status": "DONE",
       "updatedAt": "2023-11-29T10:31:10.229Z"
     },
