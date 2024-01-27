@@ -1,8 +1,8 @@
-import axios from 'axios';
-
 import { BingoBoard } from './schema';
 
-const BINGO_BOARDS_API_URL = `/dummy/getBoards.json`;
+import axiosInstance from '../plugins/axios';
+
+const BINGO_BOARDS_API_URL = `${process.env.NEXT_PUBLIC_API_URL}/boards`;
 
 interface GetBoardsResponse {
   items: BingoBoard[];
@@ -15,9 +15,10 @@ interface GetBoardsResponse {
 const getBoards = async (params?: {
   pageOffset: string;
 }): Promise<GetBoardsResponse> => {
-  const response = await axios.get<GetBoardsResponse>(BINGO_BOARDS_API_URL, {
-    params: params,
-  });
+  const response = await axiosInstance.get<GetBoardsResponse>(
+    BINGO_BOARDS_API_URL,
+    { params: params },
+  );
   return response?.data;
 };
 

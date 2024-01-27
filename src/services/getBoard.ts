@@ -1,15 +1,17 @@
-import axios from 'axios';
-
 import { BingoBoard } from './schema';
 
-const BINGG_DETAIL_API = `/dummy/getBoard.json`;
+import axiosInstance from '../plugins/axios';
+
+const BINGG_DETAIL_API = `/boards`;
 
 type BoardsDetailResponse = BingoBoard;
 
-const getBoard = async (id?: number): Promise<BoardsDetailResponse> => {
-  const response = await axios.get<BoardsDetailResponse>(
-    // `${BINGG_DETAIL_API}/${boardId}`,
-    `${BINGG_DETAIL_API}`,
+const getBoard = async (
+  id?: BingoBoard['id'],
+): Promise<BoardsDetailResponse> => {
+  console.log(id);
+  const response = await axiosInstance.get<BoardsDetailResponse>(
+    `${BINGG_DETAIL_API}/${id}`,
   );
   return response?.data;
 };

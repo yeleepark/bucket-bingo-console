@@ -23,8 +23,8 @@ import {
 const BingoDetailPage = () => {
   const router = useRouter();
   const { data, status } = useQuery({
-    queryKey: [BINGG_DETAIL_API, Number(router?.query?.id)],
-    queryFn: () => getBoard(Number(router?.query?.id)),
+    queryKey: [BINGG_DETAIL_API, String(router?.query?.id)],
+    queryFn: () => getBoard(String(router?.query?.id)),
   });
   if (status === 'pending') return <div>loading</div>;
   if (status === 'error') return <div>error</div>;
@@ -88,8 +88,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { id } = query;
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: [BINGG_DETAIL_API, Number(id)],
-    queryFn: () => getBoard(Number(id)),
+    queryKey: [BINGG_DETAIL_API, id],
+    queryFn: () => getBoard(id as string),
   });
   return {
     props: {},

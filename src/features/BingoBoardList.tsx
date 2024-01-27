@@ -26,7 +26,7 @@ const BingoBoardList = () => {
 
   const handleClickPagnation = (page: number) => {
     const url = `${router.pathname}?pageOffset=${page - 1}`;
-    router.push(url, `/`, { shallow: true });
+    router.push(url, url, { shallow: true });
   };
 
   const navigateToDetailPage = (id: BingoBoardType['id']) => {
@@ -83,19 +83,32 @@ const BingoBoardList = () => {
                 <BingoListCard onClick={() => navigateToDetailPage(item?.id)}>
                   <BingoBoard data={item} />
                   <Box>
-                    <Typography fontSize={12} textAlign={'right'}>
-                      {calculateBingoSuccessCount(item.size, item.squares)}줄
-                      성공
-                    </Typography>
+                    {item?.status === `DRAFT` ? (
+                      <Typography fontSize={12} textAlign={'right'}>
+                        작성을 기다리고 있어요
+                      </Typography>
+                    ) : (
+                      <Typography fontSize={12} textAlign={'right'}>
+                        {calculateBingoSuccessCount(item.size, item.squares)}줄
+                        성공
+                      </Typography>
+                    )}
                     <Typography variant={'subtitle1'}>{item?.name}</Typography>
                     <Typography variant={'body1'} color={'text.secondary'}>
                       {item?.description}
                     </Typography>
+
                     <Typography variant={'body2'} color={'text.secondary'}>
-                      {getFormattedDateYYYYMMDD(item?.created?.at)}
-                      {item?.endDate !== undefined
-                        ? ` ~ ${getFormattedDateYYYYMMDD(item?.endDate)}`
-                        : null}
+                      {item?.status === `DRAFT` ? (
+                        `작성중`
+                      ) : (
+                        <>
+                          {getFormattedDateYYYYMMDD(item?.created?.at)}
+                          {item?.endDate !== undefined
+                            ? ` ~ ${getFormattedDateYYYYMMDD(item?.endDate)}`
+                            : null}
+                        </>
+                      )}
                     </Typography>
                   </Box>
                 </BingoListCard>

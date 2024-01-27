@@ -14,7 +14,7 @@ type BingoSquare = {
   updatedAt: Date;
 };
 type BingoBoard = {
-  id: number;
+  id: string;
   name: string;
   description?: string;
   size: 5 | 6 | 7 | 8 | 9 | 10;
