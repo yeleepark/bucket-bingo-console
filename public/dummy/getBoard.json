@@ -1,265 +1,177 @@
 {
-  "id": 0,
-  "name": "page",
-  "description": "string",
+  "id": "65af9f51180d5633fb08077c",
+  "name": "hihi",
   "size": 5,
   "squares": [
     {
-      "order": 0,
-      "objective": null,
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
-    },
-    {
       "order": 1,
-      "objective": null,
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 2,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 3,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
       "status": "TODO",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 4,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 5,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 6,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 7,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 8,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 9,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 10,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 11,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 12,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 13,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 14,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 15,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 16,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 17,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 18,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 19,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 20,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 21,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 22,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 23,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     },
     {
       "order": 24,
-      "objective": {
-        "content": "string",
-        "totalCount": 1,
-        "currentCount": 1
-      },
-      "status": "DONE",
-      "updatedAt": "2023-11-29T10:31:10.229Z"
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
+    },
+    {
+      "order": 25,
+      "status": "TODO",
+      "updatedAt": "2024-01-23T11:13:21.709Z",
+      "objective": null
     }
   ],
   "status": "DRAFT",
-  "startDate": "2023-11-26T12:43:49.008Z",
-  "endDate": "2023-11-26T12:43:49.008Z",
+  "bingo": {
+    "targetCount": 22,
+    "currentCount": 0
+  },
   "created": {
-    "at": "2023-11-26T12:43:49.008Z",
+    "at": "2024-01-23T11:13:21.754Z",
     "by": {
-      "id": "string"
+      "id": "tester"
     }
   },
   "updated": {
-    "at": "2023-11-26T12:43:49.008Z",
+    "at": "2024-01-23T11:13:21.754Z",
     "by": {
-      "id": "string"
+      "id": "tester"
     }
-  }
+  },
+  "description": "짜증나요",
+  "startDate": null,
+  "endDate": "2024-01-23T11:12:56.747Z"
 }
