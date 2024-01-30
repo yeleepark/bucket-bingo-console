@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Fragment, ReactElement } from 'react';
 
 import { BINGG_DETAIL_API, getBoard } from '@services/getBoard';
-import { patchBingoStart } from '@services/patchBingoStart';
+import { patchBoardStart } from '@services/patchBoardStart';
 import { QueryClient, useMutation, useQuery } from '@tanstack/react-query';
 
 import BingoBoard from '@components/Bingo/BingoBoard';
@@ -28,7 +28,7 @@ const BingoDetailPage = () => {
     queryFn: () => getBoard(String(router?.query?.id)),
   });
   const { mutateAsync } = useMutation({
-    mutationFn: () => patchBingoStart(router?.query?.id as string),
+    mutationFn: () => patchBoardStart(router?.query?.id as string),
   });
   const handleClcikBingoStart = () => {
     mutateAsync().then((res) => {
