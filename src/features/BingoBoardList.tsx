@@ -44,7 +44,6 @@ const BingoBoardList = () => {
       </Snackbar>
     );
   }
-
   return (
     <Container sx={{ height: `100%` }}>
       <Box my={4}>
@@ -114,6 +113,13 @@ const BingoBoardList = () => {
                 </BingoListCard>
               </Grid>
             ))}
+            {Array.from({ length: data?.pageSize - data?.totalCount }).map(
+              (_, index) => (
+                <Grid key={index} item xs={1}>
+                  <BingoListCard></BingoListCard>
+                </Grid>
+              ),
+            )}
           </>
         )}
       </Grid>

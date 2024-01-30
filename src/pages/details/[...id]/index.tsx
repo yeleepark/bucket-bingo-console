@@ -3,7 +3,8 @@ import { useRouter } from 'next/router';
 import { Fragment, ReactElement } from 'react';
 
 import { BINGG_DETAIL_API, getBoard } from '@services/getBoard';
-import { QueryClient, useQuery } from '@tanstack/react-query';
+import { patchBingoStart } from '@services/patchBingoStart';
+import { QueryClient, useMutation, useQuery } from '@tanstack/react-query';
 
 import BingoBoard from '@components/Bingo/BingoBoard';
 import Layout from '@components/Layout/Layout';
@@ -26,6 +27,14 @@ const BingoDetailPage = () => {
     queryKey: [BINGG_DETAIL_API, String(router?.query?.id)],
     queryFn: () => getBoard(String(router?.query?.id)),
   });
+  const { mutateAsync } = useMutation({
+    mutationFn: () => patchBingoStart(router?.query?.id as string),
+  });
+  const handleClcikBingoStart = () => {
+    mutateAsync().then((res) => {
+      console.log(res);
+    });
+  };
   if (status === 'pending') return <div>loading</div>;
   if (status === 'error') return <div>error</div>;
   const objective = data?.squares?.map((item) => item.objective);
@@ -47,7 +56,9 @@ const BingoDetailPage = () => {
               <Box width={`100%`}>
                 <Typography>빙고 이름 : {data?.name}</Typography>
                 <BingoBoard data={data} />
-                <Button variant={`contained`}>Start</Button>
+                <Button variant={`contained`} onClick={handleClcikBingoStart}>
+                  Start
+                </Button>
                 <Typography>빙고 설명 :{data?.description}</Typography>
               </Box>
             </Grid>

@@ -15,7 +15,7 @@ interface PostBoardRequest {
  * @param request
  * @param request.name 빙고판의 이름
  * @param request.size 빙고판의 크기
- * @param request.targetCount 빙고판의 목표 개수
+ * @param request.targetCount 빙고판의 목표 줄 개수
  * @param request.description 빙고판의 설명
  * @param request.endDate 빙고판의 종료일
  */

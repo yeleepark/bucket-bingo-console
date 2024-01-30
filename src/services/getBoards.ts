@@ -14,6 +14,7 @@ interface GetBoardsResponse {
 
 const getBoards = async (params?: {
   pageOffset: string;
+  pageSize: number;
 }): Promise<GetBoardsResponse> => {
   const response = await axiosInstance.get<GetBoardsResponse>(
     BINGO_BOARDS_API_URL,

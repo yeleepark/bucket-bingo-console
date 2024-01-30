@@ -9,7 +9,6 @@ type BoardsDetailResponse = BingoBoard;
 const getBoard = async (
   id?: BingoBoard['id'],
 ): Promise<BoardsDetailResponse> => {
-  console.log(id);
   const response = await axiosInstance.get<BoardsDetailResponse>(
     `${BINGG_DETAIL_API}/${id}`,
   );

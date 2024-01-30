@@ -6,9 +6,10 @@ import { useQuery } from '@tanstack/react-query';
 const useBingoBoardsQuery = () => {
   const { query } = useRouter();
   const pageOffset = (query.pageOffset ?? '0') as string;
+  const pageSize = 12;
   return useQuery({
-    queryKey: [BINGO_BOARDS_API_URL, JSON.stringify({ pageOffset })],
-    queryFn: () => getBoards({ pageOffset }),
+    queryKey: [BINGO_BOARDS_API_URL, JSON.stringify({ pageOffset, pageSize })],
+    queryFn: () => getBoards({ pageOffset, pageSize }),
   });
 };
 
