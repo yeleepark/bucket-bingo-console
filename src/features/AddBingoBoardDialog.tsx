@@ -1,8 +1,10 @@
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
 import usePostBingoBoard from '@hooks/mutaions/usePostBingoBoard';
-import { PostBoardRequest } from '@services/postBoard';
 
 import {
   Button,
@@ -16,7 +18,6 @@ import {
   Theme,
   useMediaQuery,
 } from '@mui/material';
-
 const ResponsiveDialog = (props: DialogProps) => {
   const isFullScreen = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down('md'),
@@ -27,22 +28,34 @@ const ResponsiveDialog = (props: DialogProps) => {
 const AddBingoBoardDialog = () => {
   const [open, setOpen] = useState(true);
 
-  const { register, handleSubmit } = useForm<PostBoardRequest>({
-    defaultValues: { size: 5 },
+  const schema = yup.object().shape({
+    name: yup.string().required(),
+    size: yup.number().required().min(5).max(10),
+    description: yup.string().required(),
+    targetCount: yup.number().required().min(5).max(10),
+    endDate: yup.string().required(),
+  });
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(schema),
   });
   const { mutate } = usePostBingoBoard();
   const handleOnClose = useCallback(() => {
     setOpen(false);
   }, []);
+  const getTomorrow = ()=>{
+    let today = new Date();
+    let tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+    return tomorrow.toISOString().slice(0, 10)
+  }
 
   return (
     <ResponsiveDialog
+      component={'form'}
       open={open}
       onClose={handleOnClose}
       onSubmit={handleSubmit((data) => mutate(data))}
-      component={'form'}
       maxWidth={'sm'}
-      fullWidth
     >
       <DialogTitle>빙고생성하기</DialogTitle>
       <DialogContent>
@@ -90,7 +103,7 @@ const AddBingoBoardDialog = () => {
               margin={'normal'}
               label={'목표갯수(줄)'}
               inputProps={{
-                ...register(`size`),
+                ...register(`targetCount`),
                 type: `number`,
                 min: 5,
                 max: 10,
@@ -103,7 +116,10 @@ const AddBingoBoardDialog = () => {
               margin={'normal'}
               label={'만료일'}
               InputLabelProps={{ shrink: true }}
-              inputProps={{ ...register(`endDate`) }}
+              inputProps={{ ...register(`endDate`), 
+              defaultValue: getTomorrow(),
+              min: getTomorrow()
+             }}
             />
           </Grid>
         </Grid>
