@@ -18,6 +18,7 @@ import {
   Theme,
   useMediaQuery,
 } from '@mui/material';
+
 const ResponsiveDialog = (props: DialogProps) => {
   const isFullScreen = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down('md'),
@@ -38,23 +39,25 @@ const AddBingoBoardDialog = () => {
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   });
-  const { mutate } = usePostBingoBoard();
+  const { mutateAsync } = usePostBingoBoard({
+    onSuccess: () => setOpen(false),
+  });
   const handleOnClose = useCallback(() => {
     setOpen(false);
   }, []);
-  const getTomorrow = ()=>{
-    let today = new Date();
-    let tomorrow = new Date(today);
+  const getTomorrow = () => {
+    const today = new Date();
+    const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
-    return tomorrow.toISOString().slice(0, 10)
-  }
+    return tomorrow.toISOString().slice(0, 10);
+  };
 
   return (
     <ResponsiveDialog
       component={'form'}
       open={open}
       onClose={handleOnClose}
-      onSubmit={handleSubmit((data) => mutate(data))}
+      onSubmit={handleSubmit((data) => mutateAsync(data))}
       maxWidth={'sm'}
     >
       <DialogTitle>빙고생성하기</DialogTitle>
@@ -116,10 +119,16 @@ const AddBingoBoardDialog = () => {
               margin={'normal'}
               label={'만료일'}
               InputLabelProps={{ shrink: true }}
-              inputProps={{ ...register(`endDate`), 
-              defaultValue: getTomorrow(),
-              min: getTomorrow()
-             }}
+              inputProps={{
+                ...register(`endDate`, {
+                  setValueAs: (value) => {
+                    const dateObject = new Date(value);
+                    return dateObject.toISOString();
+                  },
+                }),
+                defaultValue: getTomorrow(),
+                min: getTomorrow(),
+              }}
             />
           </Grid>
         </Grid>
