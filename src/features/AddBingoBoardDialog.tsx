@@ -6,25 +6,15 @@ import * as yup from 'yup';
 
 import usePostBingoBoard from '@hooks/mutaions/usePostBingoBoard';
 
+import ResponsiveDialog from '@components/Dialog/ResponsiveDialog';
 import {
   Button,
-  Dialog,
   DialogActions,
   DialogContent,
-  DialogProps,
   DialogTitle,
   Grid,
   TextField,
-  Theme,
-  useMediaQuery,
 } from '@mui/material';
-
-const ResponsiveDialog = (props: DialogProps) => {
-  const isFullScreen = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down('md'),
-  );
-  return <Dialog fullScreen={isFullScreen} {...props} />;
-};
 
 const AddBingoBoardDialog = () => {
   const [open, setOpen] = useState(true);

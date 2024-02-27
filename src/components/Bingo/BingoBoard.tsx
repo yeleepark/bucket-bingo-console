@@ -19,7 +19,9 @@ const BingoSqure = ({ status }: BingoSqureProps) => {
           justifyContent: `center`,
           alignItems: `center`,
         }}
-      />
+      >
+        {status === `DRAFT` ? `+` : ``}
+      </Box>
     </Grid>
   );
 };

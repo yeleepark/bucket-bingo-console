@@ -1,5 +1,5 @@
 type BingoBoardStatus = `DRAFT` | `ACTIVE` | `INACTIVE`;
-type BingoSqureStatus = `TODO` | `IN_PROGRESS` | `DONE`;
+type BingoSqureStatus = `DRAFT` | `TODO` | `IN_PROGRESS` | `DONE`;
 type User = { id: string };
 type UserContext = { at: string; by: User };
 type BingoObjective = {
