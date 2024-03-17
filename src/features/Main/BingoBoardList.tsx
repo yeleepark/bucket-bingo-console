@@ -1,10 +1,9 @@
 import { useRouter } from 'next/router';
 
 import useBingoBoardsQuery from '@hooks/queries/useBingoBoardsQuery';
-import { BingoBoard as BingoBoardType } from '@services/schema';
+import { BingoBoard } from '@services/schema';
 
 import Snackbar from '@components/Atoms/Snackbar';
-import BingoBoard from '@components/Bingo/BingoBoard';
 import BingoListCard from '@components/Bingo/BingoListCard';
 import {
   Alert,
@@ -16,8 +15,7 @@ import {
   Typography,
 } from '@mui/material';
 
-import calculateBingoSuccessCount from '@utils/calculateSuccessBingoCount';
-import { getFormattedDateYYYYMMDD } from '@utils/dateFormat';
+import BingoBoardCard from './BingoBoardCard';
 
 const BingoBoardList = () => {
   const router = useRouter();
@@ -28,7 +26,7 @@ const BingoBoardList = () => {
     const url = `${router.pathname}?pageOffset=${page - 1}`;
     router.push(url, url, { shallow: true });
   };
-  const navigateToDetailPage = (id: BingoBoardType['id']) => {
+  const navigateToDetailPage = (id: BingoBoard['id']) => {
     router.push(`details/${id}`, undefined, {
       shallow: true,
     });
@@ -58,7 +56,7 @@ const BingoBoardList = () => {
         height={'100%'}
         alignItems={'stretch'}
       >
-        {status === `pending` ? (
+        {status === `pending` &&
           Array.from({ length: 12 })?.map((_, index) => (
             <Grid key={index} item xs={1}>
               <BingoListCard>
@@ -72,48 +70,18 @@ const BingoBoardList = () => {
                 </Box>
               </BingoListCard>
             </Grid>
-          ))
-        ) : (
+          ))}
+        {status === `success` && (
           <>
             {data?.items.map((item) => (
               <Grid key={item.id} item xs={1}>
-                <BingoListCard onClick={() => navigateToDetailPage(item?.id)}>
-                  <BingoBoard data={item} />
-                  <Box>
-                    {item?.status === `DRAFT` ? (
-                      <Typography fontSize={12} textAlign={'right'}>
-                        작성을 기다리고 있어요
-                      </Typography>
-                    ) : (
-                      <Typography fontSize={12} textAlign={'right'}>
-                        {calculateBingoSuccessCount(item.size, item.squares)}줄
-                        성공
-                      </Typography>
-                    )}
-                    <Typography variant={'subtitle1'}>{item?.name}</Typography>
-                    <Typography variant={'body1'} color={'text.secondary'}>
-                      {item?.description}
-                    </Typography>
-                    <Typography variant={'body2'} color={'text.secondary'}>
-                      {item?.status === `DRAFT` ? (
-                        <>작성중</>
-                      ) : (
-                        <>
-                          {getFormattedDateYYYYMMDD(item?.created?.at)}
-                          {item?.endDate !== undefined
-                            ? ` ~ ${getFormattedDateYYYYMMDD(item?.endDate)}`
-                            : null}
-                        </>
-                      )}
-                    </Typography>
-                  </Box>
-                </BingoListCard>
+                <BingoBoardCard item={item} />
               </Grid>
             ))}
             {Array.from({ length: data?.pageSize - data?.totalCount }).map(
               (_, index) => (
                 <Grid key={index} item xs={1}>
-                  <BingoListCard />
+                  <BingoBoardCard />
                 </Grid>
               ),
             )}

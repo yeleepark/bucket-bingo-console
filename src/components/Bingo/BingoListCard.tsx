@@ -22,7 +22,7 @@ const BingoListCard: FC<CardProps> = (props) => {
     };
   }, []);
 
-  const { children, ...restProps } = props;
+  const { children, sx, ...restProps } = props;
   return (
     <Card
       variant={'outlined'}
@@ -32,6 +32,7 @@ const BingoListCard: FC<CardProps> = (props) => {
         height: `100%`,
         cursor: 'pointer',
         '&:hover': { boxShadow: 2 },
+        ...sx,
       }}
       {...restProps}
     >
