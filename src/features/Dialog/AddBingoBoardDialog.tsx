@@ -5,6 +5,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import usePostBingoBoard from '@hooks/mutaions/usePostBingoBoard';
+import { BINGO_BOARDS_API_URL } from '@services/getBoards';
+import { useQueryClient } from '@tanstack/react-query';
 
 import ResponsiveDialog from '@components/Dialog/ResponsiveDialog';
 import {
@@ -17,20 +19,24 @@ import {
 } from '@mui/material';
 
 const AddBingoBoardDialog = () => {
+  const queryClient = useQueryClient();
   const [open, setOpen] = useState(true);
 
   const schema = yup.object().shape({
     name: yup.string().required(),
     size: yup.number().required().min(5).max(10),
     description: yup.string().required(),
-    targetCount: yup.number().required().min(5).max(10),
+    targetCount: yup.number().required().min(5), //TODO: 유효성 검사
     endDate: yup.string().required(),
   });
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   });
   const { mutateAsync } = usePostBingoBoard({
-    onSuccess: () => setOpen(false),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [BINGO_BOARDS_API_URL] });
+      setOpen(false);
+    },
   });
   const handleOnClose = useCallback(() => {
     setOpen(false);

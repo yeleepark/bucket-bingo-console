@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 
 import useBingoBoardsQuery from '@hooks/queries/useBingoBoardsQuery';
-import { BingoBoard } from '@services/schema';
 
 import Snackbar from '@components/Atoms/Snackbar';
 import BingoListCard from '@components/Bingo/BingoListCard';
@@ -25,11 +24,6 @@ const BingoBoardList = () => {
   const handleClickPagnation = (page: number) => {
     const url = `${router.pathname}?pageOffset=${page - 1}`;
     router.push(url, url, { shallow: true });
-  };
-  const navigateToDetailPage = (id: BingoBoard['id']) => {
-    router.push(`details/${id}`, undefined, {
-      shallow: true,
-    });
   };
 
   if (status === `error`) {
