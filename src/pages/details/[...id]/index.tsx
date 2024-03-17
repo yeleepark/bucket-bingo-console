@@ -7,7 +7,7 @@ import { patchBoardStart } from '@services/patchBoardStart';
 import { QueryClient, useMutation, useQuery } from '@tanstack/react-query';
 
 import BingoBoard from '@components/Bingo/BingoBoard';
-import PopupTriggerButton from '@components/Button/PopupTriggerButton';
+import DialogTriggerButton from '@components/Button/DialogTriggerButton';
 import Layout from '@components/Layout/Layout';
 import AddIcon from '@mui/icons-material/Add';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -27,7 +27,7 @@ import {
   Typography,
 } from '@mui/material';
 
-import EditBingoBoardDialog from '@features/EditBingoBoardDialog';
+import EditBingoBoardDialog from '@features/Dialog/EditBingoBoardDialog';
 
 const EditListItem = () => {
   const [edit, setEdit] = useState(false);
@@ -51,6 +51,7 @@ const EditListItem = () => {
     </Box>
   );
 };
+
 const BingoDetailPage = () => {
   const router = useRouter();
   const { data, status } = useQuery({
@@ -65,10 +66,12 @@ const BingoDetailPage = () => {
       console.log(res);
     });
   };
+
+  const objective = data?.squares?.map((item) => item.objective);
+
   if (status === 'pending') return <div>loading</div>;
   if (status === 'error') return <div>error</div>;
-  const objective = data?.squares?.map((item) => item.objective);
-  console.log(data?.squares);
+
   return (
     <Box py={2} height={'100dvh'} overflow={`overlay`}>
       <Container
@@ -95,11 +98,11 @@ const BingoDetailPage = () => {
             </Grid>
             <Grid item xs={9}>
               <Box overflow={`overlay`} height={`100%`}>
-                <PopupTriggerButton popup={<EditBingoBoardDialog />}>
+                <DialogTriggerButton popup={<EditBingoBoardDialog />}>
                   <AddIcon />
-                </PopupTriggerButton>
+                </DialogTriggerButton>
                 <List sx={{ width: '100%', bgcolor: 'common.white' }}>
-                  {objective.map((item, index) => (
+                  {objective?.map((item, index) => (
                     <Fragment key={index}>
                       <ListItem>
                         <ListItemAvatar>{index}</ListItemAvatar>

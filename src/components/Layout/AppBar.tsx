@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FC, ReactElement, cloneElement } from 'react';
 
-import PopupTriggerButton from '@components/Button/PopupTriggerButton';
+import DialogTriggerButton from '@components/Button/DialogTriggerButton';
 import GridViewSharpIcon from '@mui/icons-material/GridViewSharp';
 import {
   AppBar as MuiAppBar,
@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 
-import AddBingoBoardDialog from '@features/AddBingoBoardDialog';
+import AddBingoBoardDialog from '@features/Dialog/AddBingoBoardDialog';
 
 interface Props {
   window?: () => Window;
@@ -45,7 +45,7 @@ const AppBar: FC<AppBarProps> = (props) => {
               </Typography>
             </Box>
           </Link>
-          <PopupTriggerButton
+          <DialogTriggerButton
             popup={<AddBingoBoardDialog />}
             variant={'text'}
             disableRipple
@@ -53,7 +53,7 @@ const AppBar: FC<AppBarProps> = (props) => {
             sx={{ fontWeight: 700 }}
           >
             도전하기
-          </PopupTriggerButton>
+          </DialogTriggerButton>
         </Toolbar>
       </MuiAppBar>
     </ElevationScroll>

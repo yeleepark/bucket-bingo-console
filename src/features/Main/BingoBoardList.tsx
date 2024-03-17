@@ -28,7 +28,6 @@ const BingoBoardList = () => {
     const url = `${router.pathname}?pageOffset=${page - 1}`;
     router.push(url, url, { shallow: true });
   };
-
   const navigateToDetailPage = (id: BingoBoardType['id']) => {
     router.push(`details/${id}`, undefined, {
       shallow: true,
@@ -44,6 +43,7 @@ const BingoBoardList = () => {
       </Snackbar>
     );
   }
+
   return (
     <Container sx={{ height: `100%` }}>
       <Box my={4}>
@@ -59,22 +59,20 @@ const BingoBoardList = () => {
         alignItems={'stretch'}
       >
         {status === `pending` ? (
-          <>
-            {Array.from({ length: 12 })?.map((_, index) => (
-              <Grid key={index} item xs={1}>
-                <BingoListCard>
-                  <Box p={2} height={'100%'}>
-                    <Skeleton
-                      height={'100%'}
-                      sx={{ bgColor: `grey.200` }}
-                      variant={'rounded'}
-                      animation={'wave'}
-                    />
-                  </Box>
-                </BingoListCard>
-              </Grid>
-            ))}
-          </>
+          Array.from({ length: 12 })?.map((_, index) => (
+            <Grid key={index} item xs={1}>
+              <BingoListCard>
+                <Box p={2} height={'100%'}>
+                  <Skeleton
+                    height={'100%'}
+                    sx={{ bgColor: `grey.200` }}
+                    variant={'rounded'}
+                    animation={'wave'}
+                  />
+                </Box>
+              </BingoListCard>
+            </Grid>
+          ))
         ) : (
           <>
             {data?.items.map((item) => (
@@ -96,10 +94,9 @@ const BingoBoardList = () => {
                     <Typography variant={'body1'} color={'text.secondary'}>
                       {item?.description}
                     </Typography>
-
                     <Typography variant={'body2'} color={'text.secondary'}>
                       {item?.status === `DRAFT` ? (
-                        `작성중`
+                        <>작성중</>
                       ) : (
                         <>
                           {getFormattedDateYYYYMMDD(item?.created?.at)}
@@ -116,7 +113,7 @@ const BingoBoardList = () => {
             {Array.from({ length: data?.pageSize - data?.totalCount }).map(
               (_, index) => (
                 <Grid key={index} item xs={1}>
-                  <BingoListCard></BingoListCard>
+                  <BingoListCard />
                 </Grid>
               ),
             )}

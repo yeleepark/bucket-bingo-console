@@ -1,10 +1,10 @@
 import dynamic from 'next/dynamic';
 
-import PopupTriggerButton from '@components/Button/PopupTriggerButton';
+import DialogTriggerButton from '@components/Button/DialogTriggerButton';
 import { NavigateNextRounded } from '@mui/icons-material';
 import { Box, Container, Typography } from '@mui/material';
 
-import AddBingoBoardDialog from './AddBingoBoardDialog';
+import AddBingoBoardDialog from '../Dialog/AddBingoBoardDialog';
 
 const ConfettieLottie = dynamic(
   () => import('@components/Lottie/ConfettieLottie'),
@@ -31,14 +31,14 @@ const MainIntro = () => (
       <Typography component={'strong'} variant={'h6'}>
         버킷빙고로 숨은 행복을 찾아봐요
       </Typography>
-      <PopupTriggerButton
+      <DialogTriggerButton
         variant={'contained'}
         endIcon={<NavigateNextRounded />}
         popup={<AddBingoBoardDialog />}
         sx={{ mt: 2 }}
       >
         도전하기
-      </PopupTriggerButton>
+      </DialogTriggerButton>
     </Container>
   </Box>
 );

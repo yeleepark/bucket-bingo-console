@@ -5,8 +5,8 @@ import { QueryClient } from '@tanstack/react-query';
 
 import Layout from '@components/Layout/Layout';
 
-import BingoBoardList from '@features/BingoBoardList';
-import MainIntro from '@features/MainIntro';
+import BingoBoardList from '@features/Main/BingoBoardList';
+import MainIntro from '@features/Main/MainIntro';
 
 const Home = () => {
   return (

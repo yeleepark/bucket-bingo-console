@@ -2,10 +2,10 @@ import { FC, ReactNode, useState } from 'react';
 
 import { Button, ButtonProps as MuiButtonProps } from '@mui/material';
 
-interface PopupTriggerButtonProps extends MuiButtonProps {
+interface DialogTriggerButtonProps extends MuiButtonProps {
   popup: ReactNode;
 }
-const PopupTriggerButton: FC<PopupTriggerButtonProps> = (props) => {
+const DialogTriggerButton: FC<DialogTriggerButtonProps> = (props) => {
   const { popup, ...muiProps } = props;
   const [open, setOpen] = useState(false);
   return (
@@ -16,4 +16,4 @@ const PopupTriggerButton: FC<PopupTriggerButtonProps> = (props) => {
   );
 };
 
-export default PopupTriggerButton;
+export default DialogTriggerButton;
