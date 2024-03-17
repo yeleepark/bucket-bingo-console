@@ -12,6 +12,7 @@ import Layout from '@components/Layout/Layout';
 import AddIcon from '@mui/icons-material/Add';
 import ClearIcon from '@mui/icons-material/Clear';
 import EditIcon from '@mui/icons-material/Edit';
+import ModeEditOutlineSharpIcon from '@mui/icons-material/ModeEditOutlineSharp';
 import {
   Box,
   Button,
@@ -54,6 +55,8 @@ const EditListItem = () => {
 
 const BingoDetailPage = () => {
   const router = useRouter();
+
+  const [open, setOpen] = useState(false);
   const { data, status } = useQuery({
     queryKey: [BINGG_DETAIL_API, String(router?.query?.id)],
     queryFn: () => getBoard(String(router?.query?.id)),
@@ -63,14 +66,12 @@ const BingoDetailPage = () => {
   });
   const handleClcikBingoStart = () => {
     mutateAsync().then((res) => {
-      console.log(res);
+      console.log(res.response);
     });
   };
 
   const objective = data?.squares?.map((item) => item.objective);
-
-  if (status === 'pending') return <div>loading</div>;
-  if (status === 'error') return <div>error</div>;
+  console.log(data, objective);
 
   return (
     <Box py={2} height={'100dvh'} overflow={`overlay`}>
@@ -78,51 +79,111 @@ const BingoDetailPage = () => {
         maxWidth={'xl'}
         sx={{ mt: (theme) => `${theme.mixins.toolbar.minHeight}px` }}
       >
-        <Box
-          border={`1px solid`}
-          borderColor={`divider`}
-          borderRadius={2}
-          bgcolor={`common.white`}
-          p={3}
-        >
-          <Grid container spacing={3}>
-            <Grid item xs={3}>
-              <Box width={`100%`}>
-                <Typography>빙고 이름 : {data?.name}</Typography>
-                <BingoBoard data={data} />
-                <Button variant={`contained`} onClick={handleClcikBingoStart}>
-                  Start
-                </Button>
-                <Typography>빙고 설명 :{data?.description}</Typography>
-              </Box>
+        {status === `pending` && <div>loading</div>}
+        {status === `error` && <div>error</div>}
+        {status === `success` && (
+          <Box
+            border={`1px solid`}
+            borderColor={`divider`}
+            borderRadius={2}
+            bgcolor={`common.white`}
+            p={3}
+          >
+            <Grid container spacing={3}>
+              <Grid item xs={8} sm={5} md={3}>
+                <Box width={`100%`}>
+                  <Typography variant={`h5`}>
+                    🔥 {data?.name}(
+                    {data?.status === `DRAFT` ? (
+                      <>대기중</>
+                    ) : data?.status === `ACTIVE` ? (
+                      <>시작</>
+                    ) : (
+                      <>만료</>
+                    )}
+                    )
+                  </Typography>
+                  <Box my={2}>
+                    <BingoBoard data={data} />
+                  </Box>
+                  {data?.status === `DRAFT` && (
+                    <Button
+                      fullWidth
+                      variant={`contained`}
+                      onClick={handleClcikBingoStart}
+                    >
+                      Start
+                    </Button>
+                  )}
+                  <Typography mt={2}>{data?.description}</Typography>
+                </Box>
+              </Grid>
+              <Grid item xs={12} sm={7} md={9}>
+                <Box overflow={`overlay`} height={`100%`}>
+                  <List
+                    sx={{
+                      width: '100%',
+                      bgcolor: 'common.white',
+                      overflow: `overlay`,
+                      pt: 6,
+                    }}
+                  >
+                    {objective?.map((item, index) => (
+                      <Fragment key={item?.content || '' + index}>
+                        <ListItem
+                          disablePadding
+                          secondaryAction={
+                            <IconButton onClick={() => setOpen(true)}>
+                              <ModeEditOutlineSharpIcon />
+                            </IconButton>
+                          }
+                          sx={{ borderBottom: `1px solid red` }}
+                        >
+                          {item === null ? (
+                            <>
+                              <ListItemAvatar>{index + 1}</ListItemAvatar>
+                              <ListItemText
+                                primary={`목표를`}
+                                secondary={`목표를 작성해주세요`}
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <ListItemAvatar>{index + 1}</ListItemAvatar>
+                              <ListItemText
+                                primary={`목표`}
+                                secondary={item?.content}
+                              />
+                            </>
+                          )}
+                        </ListItem>
+                      </Fragment>
+                    ))}
+                  </List>
+                  {/* <List sx={{ width: '100%', bgcolor: 'common.white' }}>
+                    {objective?.map((item, index) => (
+                      <Fragment key={index}>
+                        <ListItem>
+                          <ListItemAvatar>{index}</ListItemAvatar>
+                          {!item?.content ? (
+                            <EditListItem />
+                          ) : (
+                            <ListItemText
+                              primary={item?.content}
+                              secondary={`${item?.currentCount}/${item?.totalCount}`}
+                            />
+                          )}
+                        </ListItem>
+                        <Divider variant="inset" component="li" />
+                      </Fragment>
+                    ))}
+                  </List> */}
+                </Box>
+              </Grid>
             </Grid>
-            <Grid item xs={9}>
-              <Box overflow={`overlay`} height={`100%`}>
-                <DialogTriggerButton popup={<EditBingoBoardDialog />}>
-                  <AddIcon />
-                </DialogTriggerButton>
-                <List sx={{ width: '100%', bgcolor: 'common.white' }}>
-                  {objective?.map((item, index) => (
-                    <Fragment key={index}>
-                      <ListItem>
-                        <ListItemAvatar>{index}</ListItemAvatar>
-                        {!item?.content ? (
-                          <EditListItem />
-                        ) : (
-                          <ListItemText
-                            primary={item?.content}
-                            secondary={`${item?.currentCount}/${item?.totalCount}`}
-                          />
-                        )}
-                      </ListItem>
-                      <Divider variant="inset" component="li" />
-                    </Fragment>
-                  ))}
-                </List>
-              </Box>
-            </Grid>
-          </Grid>
-        </Box>
+          </Box>
+        )}
+        <EditBingoBoardDialog open={open} onClose={() => setOpen(false)} />
       </Container>
     </Box>
   );

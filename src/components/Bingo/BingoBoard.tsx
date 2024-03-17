@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { BingoBoard, BingoSqureStatus } from '@services/schema';
 
+import AddSharpIcon from '@mui/icons-material/AddSharp';
 import { Box, Grid } from '@mui/material';
 
 interface BingoSqureProps {
@@ -20,7 +21,11 @@ const BingoSqure = ({ status }: BingoSqureProps) => {
           alignItems: `center`,
         }}
       >
-        {status === `DRAFT` ? `+` : ``}
+        {status === `DRAFT` ? (
+          <AddSharpIcon sx={{ width: 10, height: 10 }} />
+        ) : (
+          ``
+        )}
       </Box>
     </Grid>
   );
@@ -47,6 +52,7 @@ const BingoBoard = ({ data }: BingoBoardProps) => {
       window.removeEventListener('resize', updateHeight);
     };
   }, []);
+
   return (
     <Grid ref={ref} container columns={data.size} spacing={0.2} height={height}>
       {data?.squares?.map((i) => (
